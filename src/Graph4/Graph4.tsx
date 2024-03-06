@@ -1,0 +1,42 @@
+import { DottedCircleBlock } from "../components/DottedCircleBlock";
+
+const GRAPH_4_DATA = [
+  {
+    label: "lorem",
+    description:
+      "example description of graph 4 data, example some text blabla",
+    value: 878,
+  },
+  {
+    label: "ipsum",
+    description:
+      "example description of graph 4 data, example some text blabla",
+    value: 618,
+  },
+  {
+    label: "dolor",
+    description:
+      "example description of graph 4 data, example some text blabla",
+    value: 521,
+  },
+];
+
+const HIGHEST_VALUE = Math.max(...GRAPH_4_DATA.map((data) => data.value));
+
+export function Graph4() {
+  return (
+    <div className="flex gap-4">
+      {GRAPH_4_DATA.map(({ label, value, description }, index) => (
+        <DottedCircleBlock
+          key={label}
+          label={label}
+          value={value}
+          description={description}
+          highlighted={value === HIGHEST_VALUE}
+          // TODO: WE SHOULD NOT USE AS OPERATOR
+          colorVariant={(index + 1) as 1 | 2 | 3}
+        />
+      ))}
+    </div>
+  );
+}
