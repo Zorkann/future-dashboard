@@ -1,61 +1,9 @@
 import { AreaChart, Area, ResponsiveContainer } from "recharts";
-
-const data = [
-	{
-		name: "Page A",
-		uv: 1800,
-	},
-	{
-		name: "Page B",
-		uv: 2400,
-	},
-	{
-		name: "Page C",
-		uv: 1400,
-	},
-	{
-		name: "Page D",
-		uv: 2800,
-	},
-	{
-		name: "Page E",
-		uv: 2000,
-	},
-	{
-		name: "Page F",
-		uv: 2600,
-	},
-	{
-		name: "Page G",
-		uv: 1700,
-	},
-	{
-		name: "Page H",
-		uv: 2400,
-	},
-	{
-		name: "Page I",
-		uv: 1000,
-	},
-	{
-		name: "Page J",
-		uv: 3400,
-	},
-	{
-		name: "Page K",
-		uv: 900,
-	},
-];
+import data from "./DataGraph5.json";
 
 function findHighestUV(data: { name: string; uv: number }[]): number {
-	let highestUV = 0;
-
-	for (const item of data) {
-		if (item.uv > highestUV) {
-			highestUV = item.uv;
-		}
-	}
-
+	const uvValues = data.map((item) => item.uv);
+	const highestUV = Math.max(...uvValues);
 	return highestUV;
 }
 
