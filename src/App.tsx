@@ -3,6 +3,7 @@ import { Graph1 } from "./Graph1";
 import { Graph2 } from "./Graph2";
 import { Graph3 } from "./Graph3";
 import { Graph4 } from "./Graph4";
+import { Graph7 } from "./Graph7";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Graph2 />
       <Graph3 />
       <Graph4 />
+      <Graph7 />
     </div>
   );
 }
