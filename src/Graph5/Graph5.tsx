@@ -1,20 +1,28 @@
 import { AreaChart, Area, ResponsiveContainer } from "recharts";
-import data from "./DataGraph5.json";
 
-function findHighestUV(data: { name: string; uv: number }[]): number {
-	const uvValues = data.map((item) => item.uv);
-	const highestUV = Math.max(...uvValues);
-	return highestUV;
-}
+const data = [
+	{ uv: 1800 },
+	{ uv: 2400 },
+	{ uv: 1400 },
+	{ uv: 2800 },
+	{ uv: 2000 },
+	{ uv: 2600 },
+	{ uv: 1700 },
+	{ uv: 2400 },
+	{ uv: 1000 },
+	{ uv: 3400 },
+	{ uv: 900 },
+];
 
-const highestUVValue = findHighestUV(data);
+const HIGHEST_UV_VALUE = Math.max(...data.map((item) => item.uv));
 
 export function Graph5() {
 	return (
 		<div>
-			<h1 className="text-2xl  font-bold">{highestUVValue}</h1>
-			<span className="bg-teal-400 h-2 w-2 rounded-full inline-block"></span>
-			<ResponsiveContainer width="100%" height={150}>
+			<span className="text-2xl font-bold">{HIGHEST_UV_VALUE}</span>
+			<div className="bg-teal-300 h-2 w-2 rounded-full block"></div>
+
+			<ResponsiveContainer height={150}>
 				<AreaChart
 					width={200}
 					height={60}
@@ -35,7 +43,8 @@ export function Graph5() {
 					<Area
 						type="monotone"
 						dataKey="uv"
-						stroke="#0772d7"
+						stroke="#0e69ce"
+						strokeWidth="2"
 						fillOpacity={1}
 						fill="url(#colorUv)"
 					/>
