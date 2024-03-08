@@ -3,18 +3,25 @@
   padding: 40px;
 }
 
-.react-calendar__month-view__weekdays__weekday {
-  text-align: center;
-  height: 30px;
+/* WEEKS */
+.graph-7 .react-calendar__month-view__weekdays__weekday {
+  @apply text-center min-h-10 flex items-center justify-center;
 }
 
-.react-calendar__month-view__weekdays__weekday > * {
-  text-decoration: none;
-  font-weight: bold;
+/* DAYS */
+.graph-7 .react-calendar__tile {
+  @apply text-teal-300 min-h-11 text-sm flex items-center justify-center;
 }
 
-.react-calendar__tile {
-  height: 40px;
+.graph-7 .react-calendar__tile:disabled {
   @apply text-blue-700;
-  cursor: unset;
+}
+
+/* DATE */
+.graph-7 .react-calendar__month-view abbr {
+  @apply no-underline font-bold min-w-8 min-h-8 flex items-center justify-center;
+}
+
+.graph-7 .react-calendar__tile--active > abbr {
+  @apply rounded-full bg-teal-300/30;
 }

@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { useState } from "react";
 
+// TODO: MAKE IT RESPONSIVE < 300px
 const CIRCLE_SIZE = 110;
 const SMALL_CIRCLE_SIZE_HIGHLIGHTED = 3;
 const SMALL_CIRCLE_SIZE = 2.2;
