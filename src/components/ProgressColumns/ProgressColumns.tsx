@@ -53,17 +53,17 @@ export function ProgressColumns({
 
   const progressRef = useResizeObserver(onResize);
 
-  // TODO: USE TW-MERGE 
+  // TODO: USE TW-MERGE
   return (
     <div className="flex items-center justify-center">
       <span className="font-bold uppercase min-w-20">{label}</span>
-      <div className="w-full flex gap-[8px]" ref={progressRef}>
+      <div className="w-full h-8 flex gap-[8px]" ref={progressRef}>
         {columns.map(({ id, highlighted }) => (
           <div
             key={id}
-            className={clsx("w-[12px] h-8 rounded-sm", {
-              [COLOR_VARIANTS[colorVariant]?.bgColor || DEFAULT_VARIANT.bgColor]:
-                highlighted,
+            className={clsx("w-[12px] rounded-sm", {
+              [COLOR_VARIANTS[colorVariant]?.bgColor ||
+              DEFAULT_VARIANT.bgColor]: highlighted,
               ["bg-zinc-800/70"]: !highlighted,
             })}
           />
