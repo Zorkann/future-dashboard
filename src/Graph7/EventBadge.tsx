@@ -49,7 +49,7 @@ export function EventBadge({
             height={12}
             xmlns="http://www.w3.org/2000/svg"
           >
-            <circle cx={"50%"} cy={"50%"} r={6} className="fill-teal-300" />
+            <circle cx="50%" cy="50%" r='50%' className="fill-teal-300" />
           </svg>
         </div>
         <SwitchTransition>

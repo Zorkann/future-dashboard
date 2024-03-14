@@ -5,26 +5,12 @@ import clsx from "clsx";
 type ProgressBarProps = {
   label: string;
   value: number;
-  colorVariant: keyof typeof COLOR_VARIANTS;
+  colorVariant: number;
 };
 
 type ProgressColumn = { id: number; highlighted: boolean };
 
-const DEFAULT_VARIANT = {
-  bgColor: "bg-zinc-600",
-};
-
-const COLOR_VARIANTS = {
-  1: {
-    bgColor: "bg-teal-300",
-  },
-  2: {
-    bgColor: "bg-blue-500",
-  },
-  3: {
-    bgColor: "bg-blue-700",
-  },
-};
+const COLOR_VARIANTS = ["bg-teal-300", "bg-blue-500", "bg-blue-700"];
 
 export function ProgressColumns({
   label,
@@ -62,8 +48,7 @@ export function ProgressColumns({
           <div
             key={id}
             className={clsx("w-[12px] rounded-sm", {
-              [COLOR_VARIANTS[colorVariant]?.bgColor ||
-              DEFAULT_VARIANT.bgColor]: highlighted,
+              [COLOR_VARIANTS[colorVariant] || "bg-zinc-600"]: highlighted,
               ["bg-zinc-800/70"]: !highlighted,
             })}
           />

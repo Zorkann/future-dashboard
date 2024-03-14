@@ -15,7 +15,7 @@ const GRAPH_3_DATA = [
   },
 ];
 
-// TODO: USE GRID INSTEAD OF FLEX 
+// TODO: USE GRID INSTEAD OF FLEX
 export function Graph3() {
   return (
     <div className="flex flex-col gap-4">
@@ -24,7 +24,7 @@ export function Graph3() {
           key={label}
           label={label}
           value={value}
-          colorVariant={(index + 1) as 1 | 2 | 3}
+          colorVariant={index}
         />
       ))}
     </div>
