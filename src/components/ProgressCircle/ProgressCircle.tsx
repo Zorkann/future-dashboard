@@ -1,100 +1,80 @@
+import clsx from "clsx";
+
 type ProgressCircleProps = {
-	percent: number;
 	value: number;
-	colorVariant: keyof typeof COLOR_VARIANTS;
-	transparentVariant: keyof typeof TRANSPARENT_VARIANTS;
+	colorVariant: number;
 	label: string;
+	max?: number;
 };
 
-const TRANSPARENT_VARIANTS = {
-	1: {
-		opacity: "0.5",
-	},
-	2: {
-		opacity: "1",
-	},
-};
+const COLOR_VARIANTS = [
+	"stroke-teal-300",
+	"stroke-blue-500",
+	"stroke-blue-700",
+	"stroke-blue-600",
+];
+const MAX_DATA = 1000;
 
-const COLOR_VARIANTS = {
-	1: {
-		stroke: "stroke-blue-700",
-	},
-	2: {
-		stroke: "stroke-blue-500",
-	},
-	3: {
-		stroke: "stroke-teal-300",
-	},
-};
+const SVG_SIZE = 100;
+const CIRCLE_RADIUS = 50;
+const FONT_SIZE = (SVG_SIZE * 1.125) / 100;
+const CIRCUMFERENCE = 2 * Math.PI * CIRCLE_RADIUS;
 
 export function ProgressCircle({
-	percent,
 	value,
 	colorVariant,
-	transparentVariant,
 	label,
+	max = MAX_DATA,
 }: ProgressCircleProps) {
-	const circleRadius = 60;
-	const circleSize = 70;
-	const circumference = 2 * Math.PI * circleRadius;
-	const offset = circumference - (percent / 100) * circumference;
-	const color = COLOR_VARIANTS[colorVariant].stroke;
-	const transparent = TRANSPARENT_VARIANTS[transparentVariant].opacity;
+	const percent = Math.round((value / max) * 100);
+	const offset = CIRCUMFERENCE - (percent / 100) * CIRCUMFERENCE;
+	const color = COLOR_VARIANTS[colorVariant];
 
 	return (
-		<div className="flex flex-col items-center">
-			<svg
-				width="100"
-				height="100"
-				viewBox="-17.5 -17.5 175 175"
-				version="1.1"
-				xmlns="http://www.w3.org/2000/svg"
-				style={{ transform: "rotate(-90deg)" }}
-			>
-				<circle
-					r={circleRadius}
-					cx={circleSize}
-					cy={circleSize}
-					fill="transparent"
-					stroke="#222b3f"
-					strokeOpacity="0.5"
-					strokeWidth="16px"
-				></circle>
-				<circle
-					r={circleRadius}
-					cx={circleSize}
-					cy={circleSize}
-					fill="transparent"
-					className={color}
-					strokeOpacity={transparent}
-					strokeWidth="16px"
-					strokeLinecap="butt"
-					strokeDasharray={`${circumference}`}
-					strokeDashoffset={offset}
-				>
-					<animate
-						attributeName="stroke-dashoffset"
-						from="360"
-						to={offset}
-						dur="1s"
-						repeatCount="1"
-					></animate>
-				</circle>
-
-				<text
-					x="43px"
-					y="85px"
-					fill="white"
-					font-size="30px"
-					font-weight="bold"
+		<div className="relative flex flex-col items-center gap-4">
+			<div className="relative">
+				<span
+					className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] font-bold"
 					style={{
-						transform: "rotate(90deg) translateY(-145px) ",
+						fontSize: `${FONT_SIZE}rem`,
 					}}
 				>
 					{value}
-				</text>
-			</svg>
-
+				</span>
+				<svg
+					width={SVG_SIZE}
+					height={SVG_SIZE}
+					viewBox={`0, 0, 120, 120`}
+					version="1.1"
+					xmlns="http://www.w3.org/2000/svg"
+					style={{ transform: "rotate(-90deg)" }}
+				>
+					<circle
+						className="stroke-zinc-800/50 fill-transparent"
+						r={CIRCLE_RADIUS}
+						cx={60}
+						cy={60}
+						strokeWidth={10}
+					></circle>
+					<circle
+						r={CIRCLE_RADIUS}
+						cx={60}
+						cy={60}
+						className={clsx("fill-transparent", color)}
+						strokeWidth={10}
+						strokeDasharray={CIRCUMFERENCE}
+						strokeDashoffset={offset}
+					>
+						<animate
+							attributeName="stroke-dashoffset"
+							from={CIRCUMFERENCE}
+							to={offset}
+							dur="1s"
+							repeatCount="1"
+						></animate>
+					</circle>
+				</svg>
+			</div>
 			<div className="font-bold uppercase text-sm">{label}</div>
 		</div>
 	);
