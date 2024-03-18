@@ -1,6 +1,6 @@
 import { AreaChart, Area, ResponsiveContainer } from "recharts";
 
-const data = [
+const DATA = [
 	{ uv: 1800 },
 	{ uv: 2400 },
 	{ uv: 1400 },
@@ -14,7 +14,7 @@ const data = [
 	{ uv: 900 },
 ];
 
-const HIGHEST_UV_VALUE = Math.max(...data.map((item) => item.uv));
+const HIGHEST_UV_VALUE = Math.max(...DATA.map((item) => item.uv));
 
 export function Graph5() {
 	return (
@@ -26,7 +26,7 @@ export function Graph5() {
 				<AreaChart
 					width={200}
 					height={60}
-					data={data}
+					data={DATA}
 					margin={{
 						top: 5,
 						right: 0,
@@ -35,7 +35,7 @@ export function Graph5() {
 					}}
 				>
 					<defs>
-						<linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
+						<linearGradient id="graph5-colorUV" x1="0" y1="0" x2="0" y2="1">
 							<stop offset="5%" stopColor="#0772d7" stopOpacity={0.8} />
 							<stop offset="95%" stopColor="#0772d7" stopOpacity={0} />
 						</linearGradient>
@@ -46,7 +46,7 @@ export function Graph5() {
 						stroke="#0e69ce"
 						strokeWidth="2"
 						fillOpacity={1}
-						fill="url(#colorUv)"
+						fill="url(#graph5-colorUV)"
 					/>
 				</AreaChart>
 			</ResponsiveContainer>
