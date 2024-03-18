@@ -33,8 +33,7 @@ export function Graph4() {
           value={value}
           description={description}
           highlighted={value === HIGHEST_VALUE}
-          // TODO: WE SHOULD NOT USE AS OPERATOR
-          colorVariant={(index + 1) as 1 | 2 | 3}
+          colorVariant={index}
         />
       ))}
     </div>

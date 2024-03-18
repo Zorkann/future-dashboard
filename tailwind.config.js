@@ -5,6 +5,7 @@ export default {
     extend: {
       animation: {
         "bubble-up": "bubble-up infinite",
+        "slide-left": "slide-left infinite 5s linear 1.5s"
       },
       keyframes: {
         "bubble-up": {
@@ -18,6 +19,14 @@ export default {
             transform: "scale(1)",
           },
         },
+        "slide-left": {
+          "0%": {
+            transform: "translateX(0px)"
+          },
+          "100%": {
+            transform: "translateX(-150px)"
+          }
+        }
       },
     },
   },
