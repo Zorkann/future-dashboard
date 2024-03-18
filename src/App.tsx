@@ -5,6 +5,7 @@ import { Graph3 } from "./Graph3";
 import { Graph4 } from "./Graph4";
 import { Graph5 } from "./Graph5";
 import { Graph7 } from "./Graph7";
+import { Graph8 } from "./Graph8";
 import { Graph10 } from "./Graph10";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Graph4 />
         <Graph5 />
         <Graph7 />
+        <Graph8 />
       </div>
       <div className="w-[600px]">
         <Graph10 />

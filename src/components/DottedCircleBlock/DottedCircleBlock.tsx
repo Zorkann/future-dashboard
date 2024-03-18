@@ -30,7 +30,7 @@ export function DottedCircleBlock({
         />
       </div>
       <div className="font-bold uppercase text-sm">{label}</div>
-      <div className="uppercase text-[0.5rem] text-center">{description}</div>
+      <span className="uppercase text-2xs text-center">{description}</span>
     </div>
   );
 }

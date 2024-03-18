@@ -57,9 +57,10 @@ export function Legend({ markersData }: LegendProps) {
                 width={GRAPH_WIDTH}
                 height={20}
                 data={addZeroPointsForMarkersData(dataset)}
+                className="animate-slide-left"
                 style={{
                   position: "absolute",
-                  animation: `slide-left infinite 5s linear ${SLIDE_LEFT_ANIMATION_DURATION}ms`,
+                  animationDelay: `${SLIDE_LEFT_ANIMATION_DURATION}ms`,
                 }}
               >
                 <Line
