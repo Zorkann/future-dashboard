@@ -24,7 +24,7 @@ export function Graph1() {
           key={label}
           label={label}
           value={value}
-          colorVariant={(index + 1) as 1 | 2 | 3}
+          colorVariant={index}
         />
       ))}
     </div>

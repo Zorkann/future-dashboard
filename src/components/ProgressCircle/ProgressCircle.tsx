@@ -15,7 +15,7 @@ const COLOR_VARIANTS = [
 ];
 const MAX_DATA = 1000;
 
-const SVG_SIZE = 100;
+const SVG_SIZE = 120;
 const CIRCLE_RADIUS = 50;
 const FONT_SIZE = (SVG_SIZE * 1.125) / 100;
 const CIRCUMFERENCE = 2 * Math.PI * CIRCLE_RADIUS;
@@ -31,7 +31,7 @@ export function ProgressCircle({
 	const color = COLOR_VARIANTS[colorVariant];
 
 	return (
-		<div className="relative flex flex-col items-center gap-4">
+		<div className="relative flex flex-col items-center gap-2 flex-1">
 			<div className="relative">
 				<span
 					className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] font-bold"

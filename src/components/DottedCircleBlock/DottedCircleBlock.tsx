@@ -5,25 +5,11 @@ type DottedCircleBlockProps = {
   label: string;
   value: number;
   description: string;
-  colorVariant: keyof typeof COLOR_VARIANTS;
+  colorVariant: number;
   highlighted?: boolean;
 };
 
-const DEFAULT_VARIANT = {
-  fill: "fill-zinc-600",
-};
-
-const COLOR_VARIANTS = {
-  1: {
-    fill: "fill-teal-300",
-  },
-  2: {
-    fill: "fill-blue-500",
-  },
-  3: {
-    fill: "fill-blue-700",
-  },
-};
+const COLOR_VARIANTS = ["fill-teal-300", "fill-blue-500", "fill-blue-700"];
 
 export function DottedCircleBlock({
   label,
@@ -40,13 +26,11 @@ export function DottedCircleBlock({
         </span>
         <DottedCircle
           highlighted={highlighted}
-          className={clsx(
-            COLOR_VARIANTS[colorVariant]?.fill || DEFAULT_VARIANT.fill
-          )}
+          className={clsx(COLOR_VARIANTS[colorVariant] || "fill-zinc-600")}
         />
       </div>
       <div className="font-bold uppercase text-sm">{label}</div>
-      <div className="uppercase text-[0.5rem] text-center">{description}</div>
+      <span className="uppercase text-2xs text-center">{description}</span>
     </div>
   );
 }
