@@ -2,22 +2,18 @@ import { ProgressCircle } from "../components/ProgressCircle";
 const DATA = [
 	{
 		label: "MAGNA",
-
 		value: 878,
 	},
 	{
 		label: "VELIT",
-
 		value: 618,
 	},
 	{
 		label: "DOLOR",
-
 		value: 500,
 	},
 	{
 		label: "CUPLA",
-
 		value: 221,
 	},
 ];
