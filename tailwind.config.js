@@ -27,7 +27,7 @@ export default {
             transform: "translateX(0px)",
           },
           "100%": {
-            transform: "translateX(-150px)",
+            transform: "translateX(-50%)",
           },
         },
       },

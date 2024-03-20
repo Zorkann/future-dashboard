@@ -29,7 +29,7 @@ const COLORS = ["#5eead4", "#3b82f6", "#1d4ed8"];
 
 export function Graph8() {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-2 h-full w-full">
       <div className="flex items-center gap-3">
         <svg width={12} height={12} xmlns="http://www.w3.org/2000/svg">
           <circle cx="50%" cy="50%" r="50%" className="fill-teal-300" />
@@ -42,7 +42,7 @@ export function Graph8() {
         Explicabo ipsam.
       </span>
 
-      <ResponsiveContainer width="100%" height={CHART_HEIGHT}>
+      <ResponsiveContainer width="100%" height='100%'>
         <BarChart data={GRAPH_8_DATA} margin={CHART_MARGIN}>
           <defs>
             <linearGradient id="graph8-colorUV">

@@ -18,7 +18,7 @@ const GRAPH_1_DATA = [
 // TODO: USE GRID INSTEAD OF FLEX 
 export function Graph1() {
   return (
-    <div className="flex flex-col gap-1">
+    <div className="flex flex-col h-full gap-1">
       {GRAPH_1_DATA.map(({ label, value }, index) => (
         <ProgressBar
           key={label}
