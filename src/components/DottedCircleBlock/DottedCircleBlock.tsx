@@ -19,8 +19,8 @@ export function DottedCircleBlock({
   highlighted,
 }: DottedCircleBlockProps) {
   return (
-    <div className="flex flex-col gap-2 items-center">
-      <div className="relative">
+    <div className="flex flex-col gap-2 items-center justify-center">
+      <div className="relative min-h-0">
         <span className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] font-bold text-lg">
           {value}
         </span>

@@ -6,10 +6,11 @@ import { GRAPH_10_DATA } from "./data";
 
 export function Graph10() {
   return (
-    <div>
+    <div className="flex flex-col w-full h-full gap-4 justify-between">
+      <span className="uppercase font-bold">excepteur</span>
       <ComposableMap
         projection="geoEqualEarth"
-        width={900}
+        width={800}
         height={500}
         projectionConfig={{ center: [20, 0] }}
       >

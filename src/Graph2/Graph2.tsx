@@ -43,7 +43,7 @@ const data = [
 // TODO: HOW TO GET CSS HEX FROM TAILWIND
 export function Graph2() {
   return (
-    <ResponsiveContainer width="100%" height={300}>
+    <ResponsiveContainer width="100%" height='100%'>
       <LineChart
         data={data}
         margin={{

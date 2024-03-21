@@ -55,7 +55,7 @@ export function Graph7() {
   }
 
   return (
-    <div className="flex flex-col gap-2 graph-7">
+    <div className="flex flex-col gap-2 graph-7 w-full h-full">
       <MonthView
         value={selectedEvent ? new Date(selectedEvent.date) : null}
         onClick={handleOnEventClick}
