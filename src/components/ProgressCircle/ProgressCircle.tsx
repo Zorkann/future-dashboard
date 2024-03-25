@@ -8,10 +8,10 @@ type ProgressCircleProps = {
 };
 
 const COLOR_VARIANTS = [
-  "stroke-teal-300",
-  "stroke-blue-500",
-  "stroke-blue-700",
-  "stroke-blue-600",
+  "stroke-primary",
+  "stroke-secondary",
+  "stroke-secondary-700",
+  "stroke-secondary-800",
 ];
 
 const MAX_DATA = 1000;

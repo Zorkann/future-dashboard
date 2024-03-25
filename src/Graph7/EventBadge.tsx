@@ -37,7 +37,7 @@ export function EventBadge({
   return (
     <div className="grid grid-cols-7">
       <div
-        className={`col-start-1 col-end-6 flex items-center p-2 pl-4 min-h-10 gap-4 border-2 border-solid border-teal-300/30 rounded-full`}
+        className={`col-start-1 col-end-6 flex items-center p-2 pl-4 min-h-10 gap-4 border-2 border-solid border-primary/30 rounded-full`}
       >
         <div>
           <svg
@@ -49,7 +49,7 @@ export function EventBadge({
             height={12}
             xmlns="http://www.w3.org/2000/svg"
           >
-            <circle cx="50%" cy="50%" r='50%' className="fill-teal-300" />
+            <circle cx="50%" cy="50%" r='50%' className="fill-primary" />
           </svg>
         </div>
         <SwitchTransition>

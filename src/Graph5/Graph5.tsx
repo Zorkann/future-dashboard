@@ -21,7 +21,7 @@ export function Graph5() {
     <div className="flex flex-col gap-4 h-full w-full">
       <div>
         <span className="text-2xl font-bold">{HIGHEST_UV_VALUE}</span>
-        <div className="bg-teal-300 h-2 w-2 rounded-full block" />
+        <div className="bg-primary h-2 w-2 rounded-full block" />
       </div>
 
       <ResponsiveContainer width={"100%"} height={"100%"}>
@@ -35,17 +35,18 @@ export function Graph5() {
             left: 0,
             bottom: 5,
           }}
+          className="text-secondary-700"
         >
           <defs>
             <linearGradient id="graph5-colorUV" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="5%" stopColor="#0772d7" stopOpacity={0.8} />
-              <stop offset="95%" stopColor="#0772d7" stopOpacity={0} />
+              <stop offset="5%" stopColor="currentColor" stopOpacity={0.8} />
+              <stop offset="95%" stopColor="currentColor" stopOpacity={0} />
             </linearGradient>
           </defs>
           <Area
             type="monotone"
             dataKey="uv"
-            stroke="#0e69ce"
+            stroke="currentColor"
             strokeWidth="2"
             fillOpacity={1}
             fill="url(#graph5-colorUV)"

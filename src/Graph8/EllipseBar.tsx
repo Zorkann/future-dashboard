@@ -19,7 +19,7 @@ export function EllipseBar(props: BarProps) {
         rx={rx}
         ry={RY}
         fill="url(#graph8-colorUV)"
-        className="stroke-blue-700"
+        className="stroke-secondary-700"
       />
 
       <ellipse
@@ -27,7 +27,7 @@ export function EllipseBar(props: BarProps) {
         cy={Number(y) + height}
         rx={rx - 1}
         ry={RY}
-        className="fill-teal-400 stroke-teal-400"
+        className="fill-primary stroke-primary"
       />
     </>
   );

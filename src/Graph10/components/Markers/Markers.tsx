@@ -6,7 +6,7 @@ type MarkersProps = {
   markersData: Graph10Data['markers'];
 };
 
-const COLOR_VARIANTS = ["fill-teal-300", "fill-blue-500", "fill-blue-700"];
+const COLOR_VARIANTS = ["fill-primary", "fill-secondary", "fill-secondary-700"];
 
 export function Markers({ markersData }: MarkersProps) {
   return markersData.data.map((dataset, index) => {

@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { MonthView, TileDisabledFunc } from "react-calendar";
 import { EventBadge } from "./EventBadge";
 import type { Event } from "./types";
-import { groupBy } from "../utils";
+import { groupBy } from "../utils/groupBy";
 
 const EVENTS: Event[] = [
   {

@@ -1,6 +1,5 @@
 #root {
   width: 100%;
-  padding: 40px;
 }
 
 .react-calendar__month-view {
@@ -28,11 +27,11 @@
 }
 
 .graph-7 .react-calendar__tile {
-  @apply text-teal-300 text-sm flex items-center justify-center;
+  @apply text-primary text-sm flex items-center justify-center;
 }
 
 .graph-7 .react-calendar__tile:disabled {
-  @apply text-blue-700;
+  @apply text-secondary-700;
 }
 
 /* DATE */
@@ -41,5 +40,5 @@
 }
 
 .graph-7 .react-calendar__tile--active > abbr {
-  @apply rounded-full bg-teal-300/30;
+  @apply rounded-full bg-primary/30;
 }

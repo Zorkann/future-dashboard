@@ -18,8 +18,11 @@ function addZeroPointsForMarkersData(
   ];
 }
 
-const COLOR_VARIANTS = ["fill-teal-300", "fill-blue-500", "fill-blue-700"];
-const LINE_COLORS = ["#5eead4", "#3b82f6", "#1d4ed8"];
+const COLOR_VARIANTS = [
+  { fill: "fill-primary", stroke: "stroke-primary" },
+  { fill: "fill-secondary", stroke: "stroke-secondary" },
+  { fill: "fill-secondary-700", stroke: "stroke-secondary-700" },
+];
 const DRAW_LINE_ANIMATION_DURATION = 4000;
 const SLIDE_LEFT_ANIMATION_DURATION = DRAW_LINE_ANIMATION_DURATION / 2.75;
 
@@ -38,7 +41,7 @@ export function Legend({ markersData }: LegendProps) {
                   cx="50%"
                   cy="50%"
                   r="50%"
-                  className={COLOR_VARIANTS[index]}
+                  className={COLOR_VARIANTS[index]?.fill}
                 />
               </svg>
             </div>
@@ -67,7 +70,8 @@ export function Legend({ markersData }: LegendProps) {
                     dataKey="value"
                     dot={false}
                     strokeWidth={2}
-                    stroke={LINE_COLORS[index]}
+                    stroke=""
+                    className={COLOR_VARIANTS[index]?.stroke}
                     // HAS TO BE LONGER BECAUSE OF 2X GRAPH DATA
                     animationDuration={DRAW_LINE_ANIMATION_DURATION}
                   />
