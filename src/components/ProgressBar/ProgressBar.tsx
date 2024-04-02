@@ -7,22 +7,22 @@ type ProgressBarProps = {
 };
 
 const DEFAULT_VARIANT = {
-  color: "text-zinc-600",
-  bgColor: "[&::-webkit-progress-value]:bg-zinc-600",
+  color: "text-default",
+  bgColor: "[&::-webkit-progress-value]:bg-default",
 };
 
 const COLOR_VARIANTS = [
   {
-    color: "text-teal-300",
-    bgColor: "[&::-webkit-progress-value]:bg-teal-300",
+    color: "text-primary",
+    bgColor: "[&::-webkit-progress-value]:bg-primary",
   },
   {
-    color: "text-blue-500",
-    bgColor: "[&::-webkit-progress-value]:bg-blue-500",
+    color: "text-secondary",
+    bgColor: "[&::-webkit-progress-value]:bg-secondary",
   },
   {
-    color: "text-blue-700",
-    bgColor: "[&::-webkit-progress-value]:bg-blue-700",
+    color: "text-secondary-700",
+    bgColor: "[&::-webkit-progress-value]:bg-secondary-700",
   },
 ];
 
@@ -34,7 +34,7 @@ export function ProgressBar({ label, value, colorVariant }: ProgressBarProps) {
         value={value}
         max={"100"}
         className={clsx(
-          "[&]:w-full [&]:h-1 [&]:rounded-lg [&::-webkit-progress-bar]:rounded-lg [&::-webkit-progress-bar]:bg-zinc-800/70 [&::-webkit-progress-value]:rounded-lg",
+          "[&]:w-full [&]:h-1 [&]:rounded-lg [&::-webkit-progress-bar]:rounded-lg [&::-webkit-progress-bar]:bg-default-800/70 [&::-webkit-progress-value]:rounded-lg",
           COLOR_VARIANTS[colorVariant]?.bgColor || DEFAULT_VARIANT.bgColor
         )}
       >

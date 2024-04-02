@@ -20,7 +20,7 @@ export function Graph10() {
               <Geography
                 key={geo.rsmKey}
                 geography={geo}
-                className="fill-zinc-800 stroke-zinc-800"
+                className="fill-default-800/70 stroke-none"
               />
             ))
           }

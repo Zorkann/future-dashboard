@@ -17,7 +17,6 @@ const GRAPH_8_DATA = [
 
 const HIGHEST_UV_VALUE = Math.max(...GRAPH_8_DATA.map((item) => item.uv));
 
-const CHART_HEIGHT = 150;
 const CHART_MARGIN = {
   top: 10,
   left: 5,
@@ -25,14 +24,12 @@ const CHART_MARGIN = {
   right: 5,
 };
 
-const COLORS = ["#5eead4", "#3b82f6", "#1d4ed8"];
-
 export function Graph8() {
   return (
     <div className="flex flex-col gap-2 h-full w-full">
       <div className="flex items-center gap-3">
         <svg width={12} height={12} xmlns="http://www.w3.org/2000/svg">
-          <circle cx="50%" cy="50%" r="50%" className="fill-teal-300" />
+          <circle cx="50%" cy="50%" r="50%" className="fill-primary" />
         </svg>
         <span className="text-2xl font-bold">{HIGHEST_UV_VALUE}</span>
       </div>
@@ -42,12 +39,26 @@ export function Graph8() {
         Explicabo ipsam.
       </span>
 
-      <ResponsiveContainer width="100%" height='100%'>
+      <ResponsiveContainer width="100%" height="100%">
         <BarChart data={GRAPH_8_DATA} margin={CHART_MARGIN}>
           <defs>
             <linearGradient id="graph8-colorUV">
-              <stop offset="15%" stopColor={COLORS[1]} stopOpacity={0.9} />
-              <stop offset="95%" stopColor={COLORS[0]} stopOpacity={0.9} />
+              <stop
+                offset="15%"
+                className="text-secondary"
+                stopOpacity={0.9}
+                style={{
+                  stopColor: "currentColor",
+                }}
+              />
+              <stop
+                offset="95%"
+                className="text-primary"
+                style={{
+                  stopColor: "currentColor",
+                }}
+                stopOpacity={0.9}
+              />
             </linearGradient>
           </defs>
           <defs>
@@ -55,8 +66,22 @@ export function Graph8() {
               id="graph8-colorUV-rotated"
               gradientTransform="rotate(90)"
             >
-              <stop offset="15%" stopColor={COLORS[1]} stopOpacity={0.9} />
-              <stop offset="95%" stopColor={COLORS[0]} stopOpacity={0.9} />
+              <stop
+                offset="15%"
+                className="text-secondary"
+                style={{
+                  stopColor: "currentColor",
+                }}
+                stopOpacity={0.9}
+              />
+              <stop
+                offset="95%"
+                className="text-primary"
+                style={{
+                  stopColor: "currentColor",
+                }}
+                stopOpacity={0.9}
+              />
             </linearGradient>
           </defs>
 

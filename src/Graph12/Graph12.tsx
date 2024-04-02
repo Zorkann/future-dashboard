@@ -22,7 +22,7 @@ export function Graph12() {
 	return (
 		<div className="flex flex-col w-full h-full gap-4">
 			<div className="flex items-center gap-3">
-				<div className="bg-blue-500 h-3 w-3 rounded-full block"></div>
+				<div className="bg-secondary h-3 w-3 rounded-full block"></div>
 				<span className="uppercase text-2xs">
 					Lorem Ipsum is simply dummy lorem dummy lorem
 				</span>
