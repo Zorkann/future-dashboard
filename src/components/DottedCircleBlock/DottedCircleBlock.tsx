@@ -9,7 +9,7 @@ type DottedCircleBlockProps = {
   highlighted?: boolean;
 };
 
-const COLOR_VARIANTS = ["fill-teal-300", "fill-blue-500", "fill-blue-700"];
+const COLOR_VARIANTS = ["fill-primary", "fill-secondary", "fill-secondary-700"];
 
 export function DottedCircleBlock({
   label,
@@ -19,8 +19,8 @@ export function DottedCircleBlock({
   highlighted,
 }: DottedCircleBlockProps) {
   return (
-    <div className="flex flex-col gap-2 items-center">
-      <div className="relative">
+    <div className="flex flex-col gap-2 items-center justify-center">
+      <div className="relative min-h-0">
         <span className="absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] font-bold text-lg">
           {value}
         </span>

@@ -7,8 +7,8 @@
   line-height: 1.5;
   font-weight: 400;
 
-  color: rgba(255, 255, 255, 0.87);
-  background-color: theme("colors.slate.900");
+  color: rgba(var(--color-text), 0.87);
+  background-color: rgba(var(--color-background));
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -19,4 +19,40 @@
 body {
   margin: 0;
   min-height: 100vh;
+}
+
+@layer base {
+  :root[data-theme="water"] {
+    --color-primary: 94, 234, 212; /* Teal-300 */
+    --color-primary-400: 45, 212, 191; /* Teal-400 */
+    --color-secondary: 59, 130, 246; /* Blue-500 */
+    --color-secondary-700: 29, 78, 216; /* Blue-700 */
+    --color-secondary-800: 30, 64, 175; /* Blue-800 */
+    --color-default: 82, 82, 91; /* Zinc-600 */
+    --color-default-800: 39, 39, 42; /* Zinc-800 */
+    --color-background: 15, 23, 42; /* Slate-900 */
+    --color-text: 255, 255, 255;
+  }
+  :root[data-theme="fire"] {
+    --color-primary: 252, 165, 165; /* Red-300 */
+    --color-primary-400: 248, 113, 113; /* Red-400 */
+    --color-secondary: 249, 115, 22; /* Orange-500 */
+    --color-secondary-700: 194, 65, 12; /* Orange-700 */
+    --color-secondary-800: 154, 52, 18; /* Orange-800 */
+    --color-default: 82, 82, 91; /* Zinc-600 */
+    --color-default-800: 39, 39, 42; /* Zinc-800 */
+    --color-background: 15, 23, 42; /* Slate-900 */
+    --color-text: 255, 255, 255;
+  }
+  :root[data-theme="light"] {
+    --color-primary: 94, 234, 212; /* Teal-300 */
+    --color-primary-400: 45, 212, 191; /* Teal-400 */
+    --color-secondary: 59, 130, 246; /* Blue-500 */
+    --color-secondary-700: 29, 78, 216; /* Blue-700 */
+    --color-secondary-800: 30, 64, 175; /* Blue-800 */
+    --color-default: 82, 82, 91; /* Zinc-600 */
+    --color-default-800: 39, 39, 42; /* Zinc-800 */
+    --color-background: 255, 255, 255;
+    --color-text: 0, 0, 0;
+  }
 }

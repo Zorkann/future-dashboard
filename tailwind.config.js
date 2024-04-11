@@ -27,9 +27,30 @@ export default {
             transform: "translateX(0px)",
           },
           "100%": {
-            transform: "translateX(-150px)",
+            transform: "translateX(-50%)",
           },
         },
+      },
+      colors: {
+        primary:{
+          DEFAULT: "rgb(var(--color-primary), <alpha-value>)",
+          400: "rgb(var(--color-primary-400), <alpha-value>)"
+        },
+        secondary: {
+          DEFAULT: "rgb(var(--color-secondary), <alpha-value>)",
+          700: "rgb(var(--color-secondary-700), <alpha-value>)",
+          800: "rgb(var(--color-secondary-800), <alpha-value>)",
+        },
+        default: {
+          DEFAULT: "rgb(var(--color-default), <alpha-value>)",
+          800: "rgb(var(--color-default-800), <alpha-value>)",
+        },
+        background: {
+          DEFAULT: "rgb(var(--color-background), <alpha-value>)"
+        },
+        text: {
+          DEFAULT: "rgb(var(--color-text), <alpha-value>)"
+        }
       },
     },
   },

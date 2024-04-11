@@ -43,7 +43,7 @@ const data = [
 // TODO: HOW TO GET CSS HEX FROM TAILWIND
 export function Graph2() {
   return (
-    <ResponsiveContainer width="100%" height={300}>
+    <ResponsiveContainer width="100%" height="100%">
       <LineChart
         data={data}
         margin={{
@@ -53,24 +53,47 @@ export function Graph2() {
           bottom: 5,
         }}
       >
-        <CartesianGrid stroke="#27272a" />
+        <CartesianGrid className="stroke-default-800" />
         <XAxis
           dataKey="name"
-          stroke="white"
           tickLine={false}
-          axisLine={{ stroke: "#27272a" }}
+          axisLine={{
+            className: "stroke-default-800",
+          }}
           tickMargin={10}
+          stroke="currentColor"
+          className="text-text"
         />
         <YAxis
-          stroke="white"
           tickLine={false}
-          axisLine={{ stroke: "#27272a" }}
+          axisLine={{
+            className: "stroke-default-800",
+          }}
           tickMargin={10}
+          stroke="currentColor"
+          className="text-text"
         />
-        {/*TODO: HANDLE DYNAMIC DATA*/}
-        <Line dataKey="pv" stroke="#5eead4" dot={false} strokeWidth={2} />
-        <Line dataKey="uv" stroke="#3b82f6" dot={false} strokeWidth={2} />
-        <Line dataKey="amt" stroke="#1d4ed8" dot={false} strokeWidth={2} />
+        <Line
+          dataKey="pv"
+          dot={false}
+          strokeWidth={2}
+          className="text-primary"
+          stroke="currentColor"
+        />
+        <Line
+          dataKey="uv"
+          dot={false}
+          strokeWidth={2}
+          className="text-secondary"
+          stroke="currentColor"
+        />
+        <Line
+          dataKey="amt"
+          dot={false}
+          strokeWidth={2}
+          className="text-secondary-700"
+          stroke="currentColor"
+        />
       </LineChart>
     </ResponsiveContainer>
   );

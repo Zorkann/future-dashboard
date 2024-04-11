@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { useState } from "react";
 
 // TODO: MAKE IT RESPONSIVE < 300px
-const CIRCLE_SIZE = 110;
+const CIRCLE_SIZE = 120;
 const SMALL_CIRCLE_SIZE_HIGHLIGHTED = 3;
 const SMALL_CIRCLE_SIZE = 2.2;
 const NUMBER_OF_CIRCLES = 20;
@@ -40,9 +40,10 @@ export function DottedCircle({ highlighted, className }: DottedCircleType) {
 
   return (
     <svg
-      width={CIRCLE_SIZE}
-      height={CIRCLE_SIZE}
+      width={"100%"}
+      height={"100%"}
       xmlns="http://www.w3.org/2000/svg"
+      viewBox={`0 0 ${CIRCLE_SIZE} ${CIRCLE_SIZE}`}
     >
       {CIRCLES.map(({ cx, cy, key }, index) => {
         return (

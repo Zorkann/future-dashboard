@@ -23,8 +23,25 @@ export function Graph9() {
 				<BarChart width={150} height={40} data={randomNumbersArray}>
 					<defs>
 						<linearGradient id="graph9-colorUV" x1="0" y1="0" x2="0" y2="1">
-							<stop offset="35%" stopColor="#4db6ac" stopOpacity={0.8} />
-							<stop offset="95%" stopColor="#1d4ed8" stopOpacity={0.2} />
+							{/* <stop offset="35%" stopColor="#4db6ac" stopOpacity={0.8} />
+							<stop offset="95%" stopColor="#1d4ed8" stopOpacity={0.2} /> */}
+
+							<stop
+								offset="35%"
+								className="text-primary-400"
+								stopOpacity={0.8}
+								style={{
+									stopColor: "currentColor",
+								}}
+							/>
+							<stop
+								offset="95%"
+								className="text-secondary-700"
+								style={{
+									stopColor: "currentColor",
+								}}
+								stopOpacity={0.2}
+							/>
 						</linearGradient>
 					</defs>
 					<Bar
@@ -36,7 +53,7 @@ export function Graph9() {
 				</BarChart>
 			</ResponsiveContainer>
 			<div className="flex items-center gap-3">
-				<div className="bg-teal-300 h-2 w-2 rounded-full block"></div>
+				<div className="bg-primary h-2 w-2 rounded-full block" />
 				<span className="text-2xl font-bold">{HIGHEST_UV_VALUE}</span>
 				<span className="uppercase text-2xs">
 					Lorem Ipsum is simply dummy lorem dummy lorem
