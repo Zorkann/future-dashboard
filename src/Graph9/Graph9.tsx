@@ -23,9 +23,6 @@ export function Graph9() {
 				<BarChart width={150} height={40} data={randomNumbersArray}>
 					<defs>
 						<linearGradient id="graph9-colorUV" x1="0" y1="0" x2="0" y2="1">
-							{/* <stop offset="35%" stopColor="#4db6ac" stopOpacity={0.8} />
-							<stop offset="95%" stopColor="#1d4ed8" stopOpacity={0.2} /> */}
-
 							<stop
 								offset="35%"
 								className="text-primary-400"
