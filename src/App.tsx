@@ -11,14 +11,24 @@ import { Graph10 } from "./Graph10";
 import { Graph12 } from "./Graph12";
 import { Header } from "@components/Header";
 import { DashboardDrawer } from "@components/DashboardDrawer";
+import { CheckboxButton } from "@components/Button";
+import { useState } from "react";
 
 function App() {
+	const [showGraph1, setShowGraph1] = useState(true);
+
+	const handleCheckboxChange = (isChecked: boolean) => {
+		setShowGraph1(isChecked);
+	};
+
 	return (
 		<div>
 			<Header Drawer={DashboardDrawer} />
+
 			<div className="grid grid-cols-1 grid-rows-[repeat(24,80px)] lg:grid-rows-[repeat(8,80px)] lg:grid-cols-[5fr,4fr,6fr] grid-flow-col gap-8 p-[40px] pt-[104px]">
 				<div className="row-span-1">
-					<Graph1 />
+					<CheckboxButton onChange={handleCheckboxChange} />
+					{showGraph1 && <Graph1 />}
 				</div>
 				<div className="row-span-3">
 					<Graph2 />
