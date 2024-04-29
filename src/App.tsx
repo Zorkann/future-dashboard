@@ -13,12 +13,40 @@ import { Header } from "@components/Header";
 import { DashboardDrawer } from "@components/DashboardDrawer";
 import { useState } from "react";
 
-function App() {
-	const [isGraph5Visible, setIsGraph5Visible] = useState(true);
+type GraphState = {
+	Graph1: boolean;
+	Graph2: boolean;
+	Graph3: boolean;
+	Graph4: boolean;
+	Graph5: boolean;
+	Graph7: boolean;
+	Graph8: boolean;
+	Graph9: boolean;
+	Graph10: boolean;
+	Graph12: boolean;
+};
 
-	const toggleGraph5Visibility = () => {
-		setIsGraph5Visible(!isGraph5Visible);
+function App() {
+	const [graphStates, setGraphStates] = useState<GraphState>({
+		Graph1: true,
+		Graph2: true,
+		Graph3: true,
+		Graph4: true,
+		Graph5: true,
+		Graph7: true,
+		Graph8: true,
+		Graph9: true,
+		Graph10: true,
+		Graph12: true,
+	});
+
+	const toggleGraphVisibility = (graphName: keyof GraphState) => {
+		setGraphStates((prevGraphStates) => ({
+			...prevGraphStates,
+			[graphName]: !prevGraphStates[graphName],
+		}));
 	};
+
 	return (
 		<div>
 			<Header
@@ -26,43 +54,25 @@ function App() {
 					<DashboardDrawer
 						onClose={onClose}
 						open={open}
-						toggleGraph5Visibility={toggleGraph5Visibility}
+						graphStates={graphStates}
+						toggleGraphVisibility={toggleGraphVisibility}
 					/>
 				)}
 			/>
 
 			<div className="grid grid-cols-1 grid-rows-[repeat(24,80px)] lg:grid-rows-[repeat(8,80px)] lg:grid-cols-[5fr,4fr,6fr] grid-flow-col gap-8 p-[40px] pt-[104px]">
-				<div className="row-span-1">
-					<Graph1 />
-				</div>
-				<div className="row-span-3">
-					<Graph2 />
-				</div>
-				<div className="row-span-2">
-					<Graph3 />
-				</div>
-				<div className="row-span-2">
-					<Graph4 />
-				</div>
-				<div className="row-span-2">{isGraph5Visible && <Graph5 />}</div>
-				<div className="row-span-1">
-					<Graph5 />
-				</div>
-				<div className="row-span-3">
-					<Graph7 />
-				</div>
-				<div className="row-span-2">
-					<Graph8 />
-				</div>
-				<div className="row-span-2">
-					<Graph9 />
-				</div>
-				<div className="row-span-4">
-					<Graph10 />
-				</div>
-				<div className="row-span-2">
-					<Graph12 />
-				</div>
+				<div className="row-span-1">{graphStates.Graph1 && <Graph1 />}</div>
+				<div className="row-span-3">{graphStates.Graph2 && <Graph2 />}</div>
+
+				<div className="row-span-2">{graphStates.Graph3 && <Graph3 />}</div>
+				<div className="row-span-2">{graphStates.Graph4 && <Graph4 />}</div>
+				<div className="row-span-2">{graphStates.Graph5 && <Graph5 />}</div>
+				<div className="row-span-1">{graphStates.Graph5 && <Graph5 />}</div>
+				<div className="row-span-3">{graphStates.Graph7 && <Graph7 />}</div>
+				<div className="row-span-2">{graphStates.Graph8 && <Graph8 />}</div>
+				<div className="row-span-2">{graphStates.Graph9 && <Graph9 />}</div>
+				<div className="row-span-4">{graphStates.Graph10 && <Graph10 />}</div>
+				<div className="row-span-2">{graphStates.Graph12 && <Graph12 />}</div>
 			</div>
 		</div>
 	);

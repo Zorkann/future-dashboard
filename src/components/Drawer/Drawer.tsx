@@ -14,13 +14,7 @@ const TRANSITION_STYLES: Partial<
 	exited: { transform: "translateX(100%)" },
 };
 
-export function Drawer({
-	onClose,
-	open,
-	title,
-	children,
-	setGraph5Visibility,
-}: DrawerProps) {
+export function Drawer({ onClose, open, title, children }: DrawerProps) {
 	const drawerRef = useRef<HTMLDivElement>(null);
 
 	return (
@@ -37,7 +31,6 @@ export function Drawer({
 					open={open}
 					title={title}
 					ref={drawerRef}
-					setGraph5Visibility={setGraph5Visibility}
 					style={{
 						transition: `transform ${DURATION}ms ease-in-out`,
 						transform: "translateX(100%)",

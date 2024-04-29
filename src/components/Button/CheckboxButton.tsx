@@ -1,14 +1,26 @@
+// Checkbox.tsx
+
 import React from "react";
 
 type CheckboxProps = {
+	label: string;
 	checked: boolean;
-	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+	onChange: (checked: boolean) => void;
 };
 
-export function CheckboxButton({ checked, onChange }: CheckboxProps) {
+export function CheckboxButton({ label, checked, onChange }: CheckboxProps) {
+	const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		onChange(event.target.checked);
+	};
+
 	return (
-		<div>
-			<input type="checkbox" checked={checked} onChange={onChange} />
-		</div>
+		<label>
+			{label}:
+			<input
+				type="checkbox"
+				checked={checked}
+				onChange={handleCheckboxChange}
+			/>
+		</label>
 	);
 }
