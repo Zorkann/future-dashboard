@@ -1,23 +1,14 @@
-// Checkbox.tsx
-import { useState } from "react";
+import React from "react";
 
 type CheckboxProps = {
-	onChange: (isChecked: boolean) => void;
+	checked: boolean;
+	onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
-export function CheckboxButton({ onChange }: CheckboxProps) {
-	const [isChecked, setIsChecked] = useState(false);
-
-	const handleCheckboxChange = () => {
-		setIsChecked(!isChecked);
-		onChange(!isChecked);
-	};
-
+export function CheckboxButton({ checked, onChange }: CheckboxProps) {
 	return (
-		<input
-			type="checkbox"
-			checked={isChecked}
-			onChange={handleCheckboxChange}
-		/>
+		<div>
+			<input type="checkbox" checked={checked} onChange={onChange} />
+		</div>
 	);
 }

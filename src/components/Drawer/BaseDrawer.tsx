@@ -2,7 +2,8 @@ import { forwardRef, useEffect, useImperativeHandle } from "react";
 import { useOnClickOutside } from "@hooks/useOnClickOutside";
 import { createPortal } from "react-dom";
 import { ThemeSwitch } from "./ThemeSwitch";
-import { CheckboxButton } from "@components/Button";
+
+// import { CheckboxButton } from "@components/Button";
 
 export type DrawerProps = {
 	onClose: (event: MouseEvent | TouchEvent | React.MouseEvent) => void;
@@ -57,9 +58,6 @@ export const BaseDrawer = forwardRef<HTMLDivElement, DrawerProps>(
 						<ThemeSwitch />
 
 						{children}
-					</div>
-					<div>
-						<CheckboxButton onChange={props.handleCheckboxChange} />
 					</div>
 				</div>
 			</div>,
