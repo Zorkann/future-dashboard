@@ -1,18 +1,10 @@
 import { DrawerProps, Drawer } from "../Drawer";
 import { CheckboxButton } from "@components/Button";
+import { useGraphsContext } from "@features/themes/GraphsContextProvider";
 
-type DashboardDrawerProps = {
-	graphStates: {
-		Graph1: boolean;
-		Graph2: boolean;
-	};
-	toggleGraphVisibility: (graphName: keyof typeof graphStates) => void;
-} & DrawerProps;
-export function DashboardDrawer({
-	toggleGraphVisibility,
-	graphStates,
-	...rest
-}: DashboardDrawerProps) {
+type DashboardDrawerProps = DrawerProps;
+export function DashboardDrawer({ ...rest }: DashboardDrawerProps) {
+	const { graphStates, toggleGraphVisibility } = useGraphsContext(); // Użycie hooka
 	return (
 		<Drawer {...rest}>
 			<CheckboxButton
