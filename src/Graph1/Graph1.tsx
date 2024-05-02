@@ -17,20 +17,18 @@ const GRAPH_1_DATA = [
 
 // TODO: USE GRID INSTEAD OF FLEX
 export function Graph1() {
-	const { graphStates } = useGraphsContext(); // Użycie hooka
+	const { graphStates } = useGraphsContext();
 
-	console.log("Stan Graph1:", graphStates.Graph1); // Dodaj to logowanie
-	return (
+	return graphStates.Graph1 ? (
 		<div className="flex flex-col h-full gap-1">
-			{graphStates.Graph1 && // Warunkowe renderowanie
-				GRAPH_1_DATA.map(({ label, value }, index) => (
-					<ProgressBar
-						key={label}
-						label={label}
-						value={value}
-						colorVariant={index}
-					/>
-				))}
+			{GRAPH_1_DATA.map(({ label, value }, index) => (
+				<ProgressBar
+					key={label}
+					label={label}
+					value={value}
+					colorVariant={index}
+				/>
+			))}
 		</div>
-	);
+	) : null;
 }

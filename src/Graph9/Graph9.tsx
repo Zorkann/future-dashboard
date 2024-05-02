@@ -1,5 +1,5 @@
 import { BarChart, Bar, ResponsiveContainer } from "recharts";
-
+import { useGraphsContext } from "@features/themes/GraphsContextProvider";
 function generateRandomNumbers() {
 	const data = [];
 	for (let i = 0; i < 150; i++) {
@@ -17,7 +17,9 @@ const randomNumbersArray = generateRandomNumbers();
 
 const HIGHEST_UV_VALUE = Math.max(...randomNumbersArray.map((item) => item.uv));
 export function Graph9() {
-	return (
+	const { graphStates } = useGraphsContext();
+
+	return graphStates.Graph9 ? (
 		<div>
 			<ResponsiveContainer width="100%" height={150}>
 				<BarChart width={150} height={40} data={randomNumbersArray}>
@@ -57,5 +59,5 @@ export function Graph9() {
 				</span>
 			</div>
 		</div>
-	);
+	) : null;
 }

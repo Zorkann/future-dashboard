@@ -1,5 +1,5 @@
 import { AreaChart, Area, ResponsiveContainer } from "recharts";
-
+import { useGraphsContext } from "@features/themes/GraphsContextProvider";
 const DATA = [
 	{ uv: 1800 },
 	{ uv: 2400 },
@@ -17,7 +17,8 @@ const DATA = [
 const HIGHEST_UV_VALUE = Math.max(...DATA.map((item) => item.uv));
 
 export function Graph5() {
-	return (
+	const { graphStates } = useGraphsContext();
+	return graphStates.Graph5 ? (
 		<div className="flex flex-col gap-4 h-full w-full">
 			<div>
 				<span className="text-2xl font-bold">{HIGHEST_UV_VALUE}</span>
@@ -54,5 +55,5 @@ export function Graph5() {
 				</AreaChart>
 			</ResponsiveContainer>
 		</div>
-	);
+	) : null;
 }

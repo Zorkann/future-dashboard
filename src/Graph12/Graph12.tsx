@@ -1,4 +1,5 @@
 import { ProgressCircle } from "../components/ProgressCircle";
+import { useGraphsContext } from "@features/themes/GraphsContextProvider";
 const DATA = [
 	{
 		label: "MAGNA",
@@ -19,7 +20,8 @@ const DATA = [
 ];
 
 export function Graph12() {
-	return (
+	const { graphStates } = useGraphsContext();
+	return graphStates.Graph12 ? (
 		<div className="flex flex-col w-full h-full gap-4">
 			<div className="flex items-center gap-3">
 				<div className="bg-primary h-3 w-3 rounded-full block"></div>
@@ -40,5 +42,5 @@ export function Graph12() {
 				})}
 			</div>
 		</div>
-	);
+	) : null;
 }

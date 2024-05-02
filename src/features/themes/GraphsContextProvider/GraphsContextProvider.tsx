@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, ReactNode } from "react";
 
 type GraphState = {
 	Graph1: boolean;
@@ -18,7 +18,9 @@ type GraphsContextType = {
 	toggleGraphVisibility: (graphName: keyof GraphState) => void;
 };
 
-const GraphsContext = createContext<GraphsContextType | undefined>(undefined);
+export const GraphsContext = createContext<GraphsContextType | undefined>(
+	undefined
+);
 
 export const useGraphsContext = () => {
 	const context = useContext(GraphsContext);
@@ -28,7 +30,7 @@ export const useGraphsContext = () => {
 	return context;
 };
 
-export const GraphsProvider: React.FC = ({ children }) => {
+export function GraphsProvider({ children }: { children: ReactNode }) {
 	const [graphStates, setGraphStates] = useState<GraphState>({
 		Graph1: true,
 		Graph2: true,
@@ -42,16 +44,16 @@ export const GraphsProvider: React.FC = ({ children }) => {
 		Graph12: true,
 	});
 
-	const toggleGraphVisibility = (graphName: keyof GraphState) => {
+	function toggleGraphVisibility(graphName: keyof GraphState) {
 		setGraphStates((prevGraphStates) => ({
 			...prevGraphStates,
 			[graphName]: !prevGraphStates[graphName],
 		}));
-	};
+	}
 
 	return (
 		<GraphsContext.Provider value={{ graphStates, toggleGraphVisibility }}>
 			{children}
 		</GraphsContext.Provider>
 	);
-};
+}
