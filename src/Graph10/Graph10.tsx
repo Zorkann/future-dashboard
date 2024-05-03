@@ -1,35 +1,46 @@
-import { ComposableMap, Geographies, Geography } from "react-simple-maps";
-import countries from "./features.json";
-import { Markers } from "./components/Markers";
-import { Legend } from "./components/Legend";
-import { GRAPH_10_DATA } from "./data";
-import { useGraphsContext } from "@features/themes/GraphsContextProvider";
+import { ProgressCircle } from "../components/ProgressCircle";
+import { useGraphsContext } from "@features/themes/hooks/useGraphsContext";
+const DATA = [
+	{
+		label: "MAGNA",
+		value: 878,
+	},
+	{
+		label: "VELIT",
+		value: 618,
+	},
+	{
+		label: "DOLOR",
+		value: 500,
+	},
+	{
+		label: "CUPLA",
+		value: 221,
+	},
+];
 
 export function Graph10() {
 	const { graphStates } = useGraphsContext();
 	return graphStates.Graph10 ? (
-		<div className="flex flex-col w-full h-full gap-4 justify-between">
-			<span className="uppercase font-bold">excepteur</span>
-			<ComposableMap
-				projection="geoEqualEarth"
-				width={800}
-				height={500}
-				projectionConfig={{ center: [20, 0] }}
-			>
-				<Geographies geography={countries}>
-					{({ geographies }) =>
-						geographies.map((geo) => (
-							<Geography
-								key={geo.rsmKey}
-								geography={geo}
-								className="fill-default-800/70 stroke-none"
-							/>
-						))
-					}
-				</Geographies>
-				<Markers markersData={GRAPH_10_DATA.markers} />
-			</ComposableMap>
-			<Legend markersData={GRAPH_10_DATA.markers} />
+		<div className="flex flex-col w-full h-full gap-4">
+			<div className="flex items-center gap-3">
+				<div className="bg-primary h-3 w-3 rounded-full block"></div>
+				<span className="uppercase text-2xs">
+					Lorem Ipsum is simply dummy lorem dummy lorem
+				</span>
+			</div>
+			<div className="flex gap-4 h-full min-h-0">
+				{DATA.map((data, index) => {
+					return (
+						<ProgressCircle
+							key={data.label}
+							label={data.label}
+							value={data.value}
+							colorVariant={index}
+						/>
+					);
+				})}
+			</div>
 		</div>
 	) : null;
 }

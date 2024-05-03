@@ -1,63 +1,35 @@
-import { BarChart, Bar, ResponsiveContainer } from "recharts";
-import { useGraphsContext } from "@features/themes/GraphsContextProvider";
-function generateRandomNumbers() {
-	const data = [];
-	for (let i = 0; i < 150; i++) {
-		const randomNumber = Math.floor(Math.random() * 1001);
+import { ComposableMap, Geographies, Geography } from "react-simple-maps";
+import countries from "./features.json";
+import { Markers } from "./components/Markers";
+import { Legend } from "./components/Legend";
+import { GRAPH_10_DATA } from "./data";
+import { useGraphsContext } from "@features/themes/hooks/useGraphsContext";
 
-		if (randomNumber > 300) {
-			const uvObject = { uv: randomNumber };
-			data.push(uvObject);
-		}
-	}
-
-	return data;
-}
-const randomNumbersArray = generateRandomNumbers();
-
-const HIGHEST_UV_VALUE = Math.max(...randomNumbersArray.map((item) => item.uv));
 export function Graph9() {
 	const { graphStates } = useGraphsContext();
-
 	return graphStates.Graph9 ? (
-		<div>
-			<ResponsiveContainer width="100%" height={150}>
-				<BarChart width={150} height={40} data={randomNumbersArray}>
-					<defs>
-						<linearGradient id="graph9-colorUV" x1="0" y1="0" x2="0" y2="1">
-							<stop
-								offset="35%"
-								className="text-primary-400"
-								stopOpacity={0.8}
-								style={{
-									stopColor: "currentColor",
-								}}
+		<div className="flex flex-col w-full h-full gap-4 justify-between">
+			<span className="uppercase font-bold">excepteur</span>
+			<ComposableMap
+				projection="geoEqualEarth"
+				width={800}
+				height={500}
+				projectionConfig={{ center: [20, 0] }}
+			>
+				<Geographies geography={countries}>
+					{({ geographies }) =>
+						geographies.map((geo) => (
+							<Geography
+								key={geo.rsmKey}
+								geography={geo}
+								className="fill-default-800/70 stroke-none"
 							/>
-							<stop
-								offset="95%"
-								className="text-secondary-700"
-								style={{
-									stopColor: "currentColor",
-								}}
-								stopOpacity={0.2}
-							/>
-						</linearGradient>
-					</defs>
-					<Bar
-						dataKey="uv"
-						stroke="url(#graph9-colorUV)"
-						fillOpacity={1}
-						fill="url(#graph9-colorUV)"
-					/>
-				</BarChart>
-			</ResponsiveContainer>
-			<div className="flex items-center gap-3">
-				<div className="bg-primary h-2 w-2 rounded-full block" />
-				<span className="text-2xl font-bold">{HIGHEST_UV_VALUE}</span>
-				<span className="uppercase text-2xs">
-					Lorem Ipsum is simply dummy lorem dummy lorem
-				</span>
-			</div>
+						))
+					}
+				</Geographies>
+				<Markers markersData={GRAPH_10_DATA.markers} />
+			</ComposableMap>
+			<Legend markersData={GRAPH_10_DATA.markers} />
 		</div>
 	) : null;
 }

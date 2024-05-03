@@ -4,14 +4,13 @@ import { Graph2 } from "./Graph2";
 import { Graph3 } from "./Graph3";
 import { Graph4 } from "./Graph4";
 import { Graph5 } from "./Graph5";
+import { Graph6 } from "./Graph6";
 import { Graph7 } from "./Graph7";
 import { Graph8 } from "./Graph8";
 import { Graph9 } from "./Graph9";
 import { Graph10 } from "./Graph10";
-import { Graph12 } from "./Graph12";
 import { Header } from "@components/Header";
 import { DashboardDrawer } from "@components/DashboardDrawer";
-
 import { GraphsProvider } from "@features/themes/GraphsContextProvider";
 
 function App() {
@@ -44,19 +43,19 @@ function App() {
 						<Graph5 />
 					</div>
 					<div className="row-span-3">
+						<Graph6 />
+					</div>
+					<div className="row-span-2">
 						<Graph7 />
 					</div>
 					<div className="row-span-2">
 						<Graph8 />
 					</div>
-					<div className="row-span-2">
+					<div className="row-span-4">
 						<Graph9 />
 					</div>
-					<div className="row-span-4">
-						<Graph10 />
-					</div>
 					<div className="row-span-2">
-						<Graph12 />
+						<Graph10 />
 					</div>
 				</div>
 			</div>

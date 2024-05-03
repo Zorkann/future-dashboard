@@ -1,5 +1,5 @@
 import { ProgressBar } from "../components/ProgressBar";
-import { useGraphsContext } from "@features/themes/GraphsContextProvider";
+import { useGraphsContext } from "@features/themes/hooks/useGraphsContext";
 const GRAPH_1_DATA = [
 	{
 		label: "etc",

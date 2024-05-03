@@ -1,99 +1,63 @@
-import { Bar, BarChart, ResponsiveContainer } from "recharts";
-import { EllipseBar } from "./EllipseBar";
-import { useGraphsContext } from "@features/themes/GraphsContextProvider";
+import { BarChart, Bar, ResponsiveContainer } from "recharts";
+import { useGraphsContext } from "@features/themes/hooks/useGraphsContext";
+function generateRandomNumbers() {
+	const data = [];
+	for (let i = 0; i < 150; i++) {
+		const randomNumber = Math.floor(Math.random() * 1001);
 
-const GRAPH_8_DATA = [
-	{ uv: 1800 },
-	{ uv: 2400 },
-	{ uv: 1400 },
-	{ uv: 2800 },
-	{ uv: 2000 },
-	{ uv: 2600 },
-	{ uv: 1700 },
-	{ uv: 2400 },
-	{ uv: 1000 },
-	{ uv: 3400 },
-	{ uv: 900 },
-];
+		if (randomNumber > 300) {
+			const uvObject = { uv: randomNumber };
+			data.push(uvObject);
+		}
+	}
 
-const HIGHEST_UV_VALUE = Math.max(...GRAPH_8_DATA.map((item) => item.uv));
+	return data;
+}
+const randomNumbersArray = generateRandomNumbers();
 
-const CHART_MARGIN = {
-	top: 10,
-	left: 5,
-	bottom: 10,
-	right: 5,
-};
-
+const HIGHEST_UV_VALUE = Math.max(...randomNumbersArray.map((item) => item.uv));
 export function Graph8() {
 	const { graphStates } = useGraphsContext();
+
 	return graphStates.Graph8 ? (
-		<div className="flex flex-col gap-2 h-full w-full">
-			<div className="flex items-center gap-3">
-				<svg width={12} height={12} xmlns="http://www.w3.org/2000/svg">
-					<circle cx="50%" cy="50%" r="50%" className="fill-primary" />
-				</svg>
-				<span className="text-2xl font-bold">{HIGHEST_UV_VALUE}</span>
-			</div>
-
-			<span className="uppercase text-2xs w-[60%]">
-				Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, labore!
-				Explicabo ipsam.
-			</span>
-
-			<ResponsiveContainer width="100%" height="100%">
-				<BarChart data={GRAPH_8_DATA} margin={CHART_MARGIN}>
+		<div>
+			<ResponsiveContainer width="100%" height={150}>
+				<BarChart width={150} height={40} data={randomNumbersArray}>
 					<defs>
-						<linearGradient id="graph8-colorUV">
+						<linearGradient id="graph9-colorUV" x1="0" y1="0" x2="0" y2="1">
 							<stop
-								offset="15%"
-								className="text-secondary"
-								stopOpacity={0.9}
+								offset="35%"
+								className="text-primary-400"
+								stopOpacity={0.8}
 								style={{
 									stopColor: "currentColor",
 								}}
 							/>
 							<stop
 								offset="95%"
-								className="text-primary"
+								className="text-secondary-700"
 								style={{
 									stopColor: "currentColor",
 								}}
-								stopOpacity={0.9}
+								stopOpacity={0.2}
 							/>
 						</linearGradient>
 					</defs>
-					<defs>
-						<linearGradient
-							id="graph8-colorUV-rotated"
-							gradientTransform="rotate(90)"
-						>
-							<stop
-								offset="15%"
-								className="text-secondary"
-								style={{
-									stopColor: "currentColor",
-								}}
-								stopOpacity={0.9}
-							/>
-							<stop
-								offset="95%"
-								className="text-primary"
-								style={{
-									stopColor: "currentColor",
-								}}
-								stopOpacity={0.9}
-							/>
-						</linearGradient>
-					</defs>
-
 					<Bar
 						dataKey="uv"
-						fill="url(#graph8-colorUV-rotated)"
-						shape={EllipseBar}
+						stroke="url(#graph9-colorUV)"
+						fillOpacity={1}
+						fill="url(#graph9-colorUV)"
 					/>
 				</BarChart>
 			</ResponsiveContainer>
+			<div className="flex items-center gap-3">
+				<div className="bg-primary h-2 w-2 rounded-full block" />
+				<span className="text-2xl font-bold">{HIGHEST_UV_VALUE}</span>
+				<span className="uppercase text-2xs">
+					Lorem Ipsum is simply dummy lorem dummy lorem
+				</span>
+			</div>
 		</div>
 	) : null;
 }

@@ -1,5 +1,3 @@
-// Checkbox.tsx
-
 import React from "react";
 
 type CheckboxProps = {

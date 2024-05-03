@@ -1,5 +1,5 @@
 import { AreaChart, Area, ResponsiveContainer } from "recharts";
-import { useGraphsContext } from "@features/themes/GraphsContextProvider";
+import { useGraphsContext } from "@features/themes/hooks/useGraphsContext";
 const DATA = [
 	{ uv: 1800 },
 	{ uv: 2400 },
