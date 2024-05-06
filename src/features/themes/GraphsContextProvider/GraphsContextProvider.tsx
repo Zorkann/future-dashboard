@@ -7,7 +7,7 @@ export const GraphsContext = createContext<GraphsContextType | undefined>(
 );
 
 export function GraphsContextProvider({ children }: { children: ReactNode }) {
-	const initialGraphStates = {
+	const initialGraphStates: GraphState = {
 		Graph1: true,
 		Graph2: true,
 		Graph3: true,
@@ -22,12 +22,12 @@ export function GraphsContextProvider({ children }: { children: ReactNode }) {
 
 	const [graphStates, setGraphStates] = useState(initialGraphStates);
 
-	function toggleGraphVisibility(graphName: keyof GraphState) {
+	const toggleGraphVisibility = (graphName: keyof GraphState) => {
 		setGraphStates((prevGraphStates) => ({
 			...prevGraphStates,
 			[graphName]: !prevGraphStates[graphName],
 		}));
-	}
+	};
 
 	return (
 		<GraphsContext.Provider value={{ graphStates, toggleGraphVisibility }}>
