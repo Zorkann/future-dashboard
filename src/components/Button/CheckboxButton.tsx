@@ -12,7 +12,7 @@ export function CheckboxButton({ label, checked, onChange }: CheckboxProps) {
 	};
 
 	return (
-		<label>
+		<label className="border rounded-lg p-2 border-secondary text-secondary ">
 			{label}:
 			<input
 				type="checkbox"

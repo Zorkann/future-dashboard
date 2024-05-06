@@ -7,7 +7,7 @@ export const GraphsContext = createContext<GraphsContextType | undefined>(
 );
 
 export function GraphsContextProvider({ children }: { children: ReactNode }) {
-	const initialGraphStates: GraphState = {
+	const initialGraphStates = {
 		Graph1: true,
 		Graph2: true,
 		Graph3: true,
