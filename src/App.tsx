@@ -11,11 +11,11 @@ import { Graph9 } from "./Graph9";
 import { Graph10 } from "./Graph10";
 import { Header } from "@components/Header";
 import { DashboardDrawer } from "@components/DashboardDrawer";
-import { GraphsProvider } from "@features/themes/GraphsContextProvider";
+import { GraphsContextProvider } from "@features/themes";
 
 function App() {
 	return (
-		<GraphsProvider>
+		<GraphsContextProvider>
 			<div>
 				<Header
 					Drawer={({ onClose, open }) => (
@@ -59,7 +59,7 @@ function App() {
 					</div>
 				</div>
 			</div>
-		</GraphsProvider>
+		</GraphsContextProvider>
 	);
 }
 

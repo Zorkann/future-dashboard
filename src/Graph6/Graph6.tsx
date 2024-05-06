@@ -3,7 +3,7 @@ import { MonthView, TileDisabledFunc } from "react-calendar";
 import { EventBadge } from "./EventBadge";
 import type { Event } from "./types";
 import { groupBy } from "../utils/groupBy";
-import { useGraphsContext } from "@features/themes/hooks/useGraphsContext";
+import { useGraphsContext } from "@features/themes";
 
 const EVENTS: Event[] = [
 	{

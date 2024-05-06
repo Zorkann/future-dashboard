@@ -1,4 +1,4 @@
-import { useGraphsContext } from "@features/themes/hooks/useGraphsContext";
+import { useGraphsContext } from "@features/themes";
 import {
 	LineChart,
 	Line,

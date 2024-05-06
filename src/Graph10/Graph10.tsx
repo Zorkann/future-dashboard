@@ -1,5 +1,5 @@
 import { ProgressCircle } from "../components/ProgressCircle";
-import { useGraphsContext } from "@features/themes/hooks/useGraphsContext";
+import { useGraphsContext } from "@features/themes";
 const DATA = [
 	{
 		label: "MAGNA",

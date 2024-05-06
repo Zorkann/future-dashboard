@@ -1,5 +1,5 @@
 import { DottedCircleBlock } from "../components/DottedCircleBlock";
-import { useGraphsContext } from "@features/themes/hooks/useGraphsContext";
+import { useGraphsContext } from "@features/themes";
 const GRAPH_4_DATA = [
 	{
 		label: "lorem",

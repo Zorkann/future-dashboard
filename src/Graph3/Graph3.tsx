@@ -1,5 +1,5 @@
 import { ProgressColumns } from "../components/ProgressColumns";
-import { useGraphsContext } from "@features/themes/hooks/useGraphsContext";
+import { useGraphsContext } from "@features/themes";
 
 const GRAPH_3_DATA = [
 	{

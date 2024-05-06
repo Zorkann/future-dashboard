@@ -1,6 +1,6 @@
 import { Bar, BarChart, ResponsiveContainer } from "recharts";
 import { EllipseBar } from "./EllipseBar";
-import { useGraphsContext } from "@features/themes/hooks/useGraphsContext";
+import { useGraphsContext } from "@features/themes";
 const GRAPH_8_DATA = [
 	{ uv: 1800 },
 	{ uv: 2400 },

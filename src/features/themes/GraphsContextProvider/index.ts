@@ -1,1 +1,1 @@
-export { GraphsContext, GraphsProvider } from "./GraphsContextProvider";
+export { GraphsContext, GraphsContextProvider } from "./GraphsContextProvider";

@@ -3,7 +3,7 @@ import countries from "./features.json";
 import { Markers } from "./components/Markers";
 import { Legend } from "./components/Legend";
 import { GRAPH_10_DATA } from "./data";
-import { useGraphsContext } from "@features/themes/hooks/useGraphsContext";
+import { useGraphsContext } from "@features/themes";
 
 export function Graph9() {
 	const { graphStates } = useGraphsContext();

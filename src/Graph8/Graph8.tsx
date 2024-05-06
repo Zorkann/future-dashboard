@@ -1,5 +1,5 @@
 import { BarChart, Bar, ResponsiveContainer } from "recharts";
-import { useGraphsContext } from "@features/themes/hooks/useGraphsContext";
+import { useGraphsContext } from "@features/themes";
 function generateRandomNumbers() {
 	const data = [];
 	for (let i = 0; i < 150; i++) {
