@@ -19,7 +19,7 @@ const GRAPH_3_DATA = [
 // TODO: USE GRID INSTEAD OF FLEX
 export function Graph3() {
 	const { graphStates } = useGraphsContext();
-	return graphStates.Graph3 ? (
+	return graphStates["Graph 3"] ? (
 		<div className="flex flex-col h-full gap-4 justify-center">
 			{GRAPH_3_DATA.map(({ label, value }, index) => (
 				<ProgressColumns

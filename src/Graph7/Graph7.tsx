@@ -26,7 +26,7 @@ const CHART_MARGIN = {
 
 export function Graph7() {
 	const { graphStates } = useGraphsContext();
-	return graphStates.Graph7 ? (
+	return graphStates["Graph 7"] ? (
 		<div className="flex flex-col gap-2 h-full w-full">
 			<div className="flex items-center gap-3">
 				<svg width={12} height={12} xmlns="http://www.w3.org/2000/svg">

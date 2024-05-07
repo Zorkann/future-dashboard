@@ -10,12 +10,12 @@ export function DashboardDrawer({ ...rest }: DashboardDrawerProps) {
 	return (
 		<Drawer {...rest}>
 			<div className="flex flex-col">
-				{Object.keys(graphStates).map((key) => (
+				{Object.keys(graphStates).map((graphName) => (
 					<CheckboxButton
-						key={key}
-						label={`${key}`}
-						checked={graphStates[key] || false}
-						onChange={() => toggleGraphVisibility(key)}
+						key={graphName}
+						label={`${graphName}`}
+						checked={graphStates[graphName] || false}
+						onChange={() => toggleGraphVisibility(graphName)}
 					/>
 				))}
 			</div>

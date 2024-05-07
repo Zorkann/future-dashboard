@@ -18,6 +18,7 @@ export function CheckboxButton({ label, checked, onChange }: CheckboxProps) {
 				type="checkbox"
 				checked={checked}
 				onChange={handleCheckboxChange}
+				className="accent-secondary-800"
 			/>
 		</label>
 	);

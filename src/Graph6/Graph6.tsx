@@ -56,7 +56,7 @@ export function Graph6() {
 		dotFlip(dotRef.current);
 	}
 
-	return graphStates.Graph6 ? (
+	return graphStates["Graph 6"] ? (
 		<div className="flex flex-col gap-2 graph-7 w-full h-full">
 			<MonthView
 				value={selectedEvent ? new Date(selectedEvent.date) : null}

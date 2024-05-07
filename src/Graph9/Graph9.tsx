@@ -7,7 +7,7 @@ import { useGraphsContext } from "@features/themes";
 
 export function Graph9() {
 	const { graphStates } = useGraphsContext();
-	return graphStates.Graph9 ? (
+	return graphStates["Graph 9"] ? (
 		<div className="flex flex-col w-full h-full gap-4 justify-between">
 			<span className="uppercase font-bold">excepteur</span>
 			<ComposableMap

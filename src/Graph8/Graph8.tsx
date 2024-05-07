@@ -19,7 +19,7 @@ const HIGHEST_UV_VALUE = Math.max(...randomNumbersArray.map((item) => item.uv));
 export function Graph8() {
 	const { graphStates } = useGraphsContext();
 
-	return graphStates.Graph8 ? (
+	return graphStates["Graph 8"] ? (
 		<div>
 			<ResponsiveContainer width="100%" height={150}>
 				<BarChart width={150} height={40} data={randomNumbersArray}>

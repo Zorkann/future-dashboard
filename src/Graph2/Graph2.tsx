@@ -45,7 +45,7 @@ const data = [
 export function Graph2() {
 	const { graphStates } = useGraphsContext();
 
-	return graphStates.Graph2 ? (
+	return graphStates["Graph 2"] ? (
 		<ResponsiveContainer width="100%" height="100%">
 			<LineChart
 				data={data}

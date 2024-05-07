@@ -19,7 +19,7 @@ const GRAPH_1_DATA = [
 export function Graph1() {
 	const { graphStates } = useGraphsContext();
 
-	return graphStates.Graph1 ? (
+	return graphStates["Graph 1"] ? (
 		<div className="flex flex-col h-full gap-1">
 			{GRAPH_1_DATA.map(({ label, value }, index) => (
 				<ProgressBar

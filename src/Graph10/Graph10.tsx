@@ -21,7 +21,7 @@ const DATA = [
 
 export function Graph10() {
 	const { graphStates } = useGraphsContext();
-	return graphStates.Graph10 ? (
+	return graphStates["Graph 10"] ? (
 		<div className="flex flex-col w-full h-full gap-4">
 			<div className="flex items-center gap-3">
 				<div className="bg-primary h-3 w-3 rounded-full block"></div>

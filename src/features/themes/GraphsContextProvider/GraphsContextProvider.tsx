@@ -8,16 +8,16 @@ export const GraphsContext = createContext<GraphsContextType | undefined>(
 
 export function GraphsContextProvider({ children }: { children: ReactNode }) {
 	const initialGraphStates: GraphState = {
-		Graph1: true,
-		Graph2: true,
-		Graph3: true,
-		Graph4: true,
-		Graph5: true,
-		Graph6: true,
-		Graph7: true,
-		Graph8: true,
-		Graph9: true,
-		Graph10: true,
+		"Graph 1": true,
+		"Graph 2": true,
+		"Graph 3": true,
+		"Graph 4": true,
+		"Graph 5": true,
+		"Graph 6": true,
+		"Graph 7": true,
+		"Graph 8": true,
+		"Graph 9": true,
+		"Graph 10": true,
 	};
 
 	const [graphStates, setGraphStates] = useState(initialGraphStates);

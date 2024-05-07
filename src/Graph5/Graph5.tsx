@@ -18,7 +18,7 @@ const HIGHEST_UV_VALUE = Math.max(...DATA.map((item) => item.uv));
 
 export function Graph5() {
 	const { graphStates } = useGraphsContext();
-	return graphStates.Graph5 ? (
+	return graphStates["Graph 5"] ? (
 		<div className="flex flex-col gap-4 h-full w-full">
 			<div>
 				<span className="text-2xl font-bold">{HIGHEST_UV_VALUE}</span>

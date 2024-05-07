@@ -25,7 +25,7 @@ const HIGHEST_VALUE = Math.max(...GRAPH_4_DATA.map((data) => data.value));
 
 export function Graph4() {
 	const { graphStates } = useGraphsContext();
-	return graphStates.Graph4 ? (
+	return graphStates["Graph 4"] ? (
 		<div className="flex h-full gap-4">
 			{GRAPH_4_DATA.map(({ label, value, description }, index) => (
 				<DottedCircleBlock
