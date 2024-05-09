@@ -1,5 +1,5 @@
 import { DrawerProps, Drawer } from "../Drawer";
-import { CheckboxButton } from "@components/Button";
+import { CheckboxButton } from "@components/CheckboxButton";
 import { useGraphsContext } from "@features/themes/hooks/useGraphsContext";
 import { GraphState } from "@features/themes/types";
 
