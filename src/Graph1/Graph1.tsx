@@ -1,5 +1,4 @@
 import { ProgressBar } from "../components/ProgressBar";
-
 const GRAPH_1_DATA = [
   {
     label: "etc",
@@ -15,7 +14,7 @@ const GRAPH_1_DATA = [
   },
 ];
 
-// TODO: USE GRID INSTEAD OF FLEX 
+// TODO: USE GRID INSTEAD OF FLEX
 export function Graph1() {
   return (
     <div className="flex flex-col h-full gap-1">

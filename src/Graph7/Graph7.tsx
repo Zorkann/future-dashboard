@@ -1,70 +1,97 @@
-import { useRef, useState } from "react";
-import { MonthView, TileDisabledFunc } from "react-calendar";
-import { EventBadge } from "./EventBadge";
-import type { Event } from "./types";
-import { groupBy } from "../utils/groupBy";
+import { Bar, BarChart, ResponsiveContainer } from "recharts";
+import { EllipseBar } from "./EllipseBar";
 
-const EVENTS: Event[] = [
-  {
-    name: "Some planned event 1",
-    date: "2024-03-14T00:00:00.000Z",
-  },
-  {
-    name: "Some planned event 2",
-    date: "2024-03-17T00:00:00.000Z",
-  },
-  {
-    name: "Some planned event 3 long long text event",
-    date: "2024-03-23T00:00:00.000Z",
-  },
-].map((event) => ({ ...event, day: new Date(event.date).getDate() }));
+const GRAPH_8_DATA = [
+  { uv: 1800 },
+  { uv: 2400 },
+  { uv: 1400 },
+  { uv: 2800 },
+  { uv: 2000 },
+  { uv: 2600 },
+  { uv: 1700 },
+  { uv: 2400 },
+  { uv: 1000 },
+  { uv: 3400 },
+  { uv: 900 },
+];
 
-const GROUPED_EVENTS = groupBy(EVENTS, (event) => event.day);
+const HIGHEST_UV_VALUE = Math.max(...GRAPH_8_DATA.map((item) => item.uv));
 
-function formatShortWeekday(locale: string | undefined, date: Date) {
-  return date.toLocaleString(locale, { weekday: "short" }).charAt(0);
-}
-
-function dotFlip(dotElement: SVGSVGElement | null) {
-  if (!dotElement) return;
-
-  if (dotElement.style.transform) {
-    dotElement.style.transform = "";
-  } else {
-    dotElement.style.transform = "rotateX(180deg)";
-  }
-}
-
-const isTileDisabled: TileDisabledFunc = ({ date }) => {
-  return !GROUPED_EVENTS[date.getDate()];
+const CHART_MARGIN = {
+  top: 10,
+  left: 5,
+  bottom: 10,
+  right: 5,
 };
 
 export function Graph7() {
-  const [selectedEvent, setSelectedEvent] = useState<Event | undefined>(
-    EVENTS[0]
-  );
-  const dotRef = useRef<SVGSVGElement>(null);
-
-  function handleOnEventClick(clickedDate: Date) {
-    const clickedEvent = GROUPED_EVENTS[clickedDate.getDate()]?.[0];
-
-    if (!clickedEvent) return;
-
-    setSelectedEvent(clickedEvent);
-    dotFlip(dotRef.current);
-  }
-
   return (
-    <div className="flex flex-col gap-2 graph-7 w-full h-full">
-      <MonthView
-        value={selectedEvent ? new Date(selectedEvent.date) : null}
-        onClick={handleOnEventClick}
-        valueType={"day"}
-        activeStartDate={new Date(2024, 2, 1)}
-        formatShortWeekday={formatShortWeekday}
-        tileDisabled={isTileDisabled}
-      />
-      <EventBadge selectedEventName={selectedEvent?.name} dotRef={dotRef} />
+    <div className="flex flex-col gap-2 h-full w-full">
+      <div className="flex items-center gap-3">
+        <svg width={12} height={12} xmlns="http://www.w3.org/2000/svg">
+          <circle cx="50%" cy="50%" r="50%" className="fill-primary" />
+        </svg>
+        <span className="text-2xl font-bold">{HIGHEST_UV_VALUE}</span>
+      </div>
+
+      <span className="uppercase text-2xs w-[60%]">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam, labore!
+        Explicabo ipsam.
+      </span>
+
+      <ResponsiveContainer width="100%" height="100%">
+        <BarChart data={GRAPH_8_DATA} margin={CHART_MARGIN}>
+          <defs>
+            <linearGradient id="graph8-colorUV">
+              <stop
+                offset="15%"
+                className="text-secondary"
+                stopOpacity={0.9}
+                style={{
+                  stopColor: "currentColor",
+                }}
+              />
+              <stop
+                offset="95%"
+                className="text-primary"
+                style={{
+                  stopColor: "currentColor",
+                }}
+                stopOpacity={0.9}
+              />
+            </linearGradient>
+          </defs>
+          <defs>
+            <linearGradient
+              id="graph8-colorUV-rotated"
+              gradientTransform="rotate(90)"
+            >
+              <stop
+                offset="15%"
+                className="text-secondary"
+                style={{
+                  stopColor: "currentColor",
+                }}
+                stopOpacity={0.9}
+              />
+              <stop
+                offset="95%"
+                className="text-primary"
+                style={{
+                  stopColor: "currentColor",
+                }}
+                stopOpacity={0.9}
+              />
+            </linearGradient>
+          </defs>
+
+          <Bar
+            dataKey="uv"
+            fill="url(#graph8-colorUV-rotated)"
+            shape={EllipseBar}
+          />
+        </BarChart>
+      </ResponsiveContainer>
     </div>
   );
 }

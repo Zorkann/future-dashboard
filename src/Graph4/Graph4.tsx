@@ -1,5 +1,4 @@
 import { DottedCircleBlock } from "../components/DottedCircleBlock";
-
 const GRAPH_4_DATA = [
   {
     label: "lorem",
