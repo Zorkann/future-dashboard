@@ -1,0 +1,235 @@
+
+{
+	"graphData1": [
+		{
+			"label": "etc",
+			"value": 30
+		},
+		{
+			"label": "elit",
+			"value": 60
+		},
+		{
+			"label": "ess",
+			"value": 80
+		}
+	],
+	"graphData2": [
+		{
+			"name": "2020",
+			"uv": 0,
+			"pv": 0,
+			"amt": 0
+		},
+		{
+			"name": "2021",
+			"uv": 20,
+			"pv": 60,
+			"amt": 22
+		},
+		{
+			"name": "2022",
+			"uv": 27,
+			"pv": 39,
+			"amt": 20
+		},
+		{
+			"name": "2023",
+			"uv": 18,
+			"pv": 48,
+			"amt": 21
+		},
+		{
+			"name": "2024",
+			"uv": 23,
+			"pv": 38,
+			"amt": 25
+		}
+	],
+	"graphData3": [
+		{
+			"label": "cillum",
+			"value": 30
+		},
+		{
+			"label": "molit",
+			"value": 60
+		},
+		{
+			"label": "fugiat",
+			"value": 80
+		}
+	],
+	"graphData4": [
+		{
+			"label": "lorem",
+			"description": "example description of graph 4 data, example some text blabla",
+			"value": 878
+		},
+		{
+			"label": "ipsum",
+			"description": "example description of graph 4 data, example some text blabla",
+			"value": 618
+		},
+		{
+			"label": "dolor",
+			"description": "example description of graph 4 data, example some text blabla",
+			"value": 521
+		}
+	],
+	"graphData5": [
+		{ "uv": 1800 },
+		{ "uv": 2400 },
+		{ "uv": 1400 },
+		{ "uv": 2800 },
+		{ "uv": 2000 },
+		{ "uv": 2600 },
+		{ "uv": 1700 },
+		{ "uv": 2400 },
+		{ "uv": 1000 },
+		{ "uv": 3400 },
+		{ "uv": 900 }
+	],
+	"graphData6": [
+		{
+			"name": "Some planned event 1",
+			"date": "2024-03-14T00:00:00.000Z"
+		},
+		{
+			"name": "Some planned event 2",
+			"date": "2024-03-17T00:00:00.000Z"
+		},
+		{
+			"name": "Some planned event 3 long long text event",
+			"date": "2024-03-23T00:00:00.000Z"
+		}
+	],
+	"graphData7": [
+		{ "uv": 1800 },
+		{ "uv": 2400 },
+		{ "uv": 1400 },
+		{ "uv": 2800 },
+		{ "uv": 2000 },
+		{ "uv": 2600 },
+		{ "uv": 1700 },
+		{ "uv": 2400 },
+		{ "uv": 1000 },
+		{ "uv": 3400 },
+		{ "uv": 900 }
+	],
+	"graphData8": [
+		{
+			"label": "foo",
+			"value": 50
+		},
+		{
+			"label": "bar",
+			"value": 70
+		},
+		{
+			"label": "baz",
+			"value": 90
+		}
+	],
+	"graphData9": {
+        "markers": {
+          "value": 9800,
+          "data": [
+            {
+              "label": "nisi",
+              "points": [
+                {
+                  "coordinates": [10, 50],
+                  "value": 400
+                },
+                {
+                  "coordinates": [-74.006, 40.7128],
+                  "value": 1000
+                },
+                {
+                  "coordinates": [100, 150],
+                  "value": 800
+                },
+                {
+                  "coordinates": [408, 342],
+                  "value": 200
+                },
+                {
+                  "coordinates": [300, 180],
+                  "value": 800
+                },
+                {
+                  "coordinates": [58, 142],
+                  "value": 600
+                },
+                {
+                  "coordinates": [28, 172],
+                  "value": 400
+                },
+                {
+                  "coordinates": [28, -20],
+                  "value": 1000
+                },
+                {
+                  "coordinates": [100, 0],
+                  "value": 200
+                }
+              ],
+              "value": 5600
+            },
+            {
+              "label": "elit",
+              "points": [
+                {
+                  "coordinates": [100, 50],
+                  "value": 300
+                },
+                {
+                  "coordinates": [350, 150],
+                  "value": 1000
+                },
+                {
+                  "coordinates": [250, 50],
+                  "value": 500
+                },
+                {
+                  "coordinates": [150, 50],
+                  "value": 900
+                },
+                {
+                  "coordinates": [10, 10],
+                  "value": 400
+                },
+                {
+                  "coordinates": [130, -150],
+                  "value": 800
+                },
+                {
+                  "coordinates": [-60, -30],
+                  "value": 700
+                }
+              ],
+              "value": 4200
+            }
+          ]
+        }
+      },
+	"graphData10": [
+        {
+          "label": "MAGNA",
+          "value": 878
+        },
+        {
+          "label": "VELIT",
+          "value": 618
+        },
+        {
+          "label": "DOLOR",
+          "value": 500
+        },
+        {
+          "label": "CUPLA",
+          "value": 221
+        }
+      ]
+}
