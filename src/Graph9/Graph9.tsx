@@ -1,8 +1,8 @@
-import { ComposableMap, Geographies, Geography } from "react-simple-maps";
-import countries from "./features.json";
-import { Markers } from "./components/Markers";
-import { Legend } from "./components/Legend";
-import { GRAPH_10_DATA } from "./data";
+import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
+import countries from './features.json';
+import { Markers } from './components/Markers';
+import { Legend } from './components/Legend';
+import { GRAPH_10_DATA } from './data';
 
 export function Graph9() {
   return (

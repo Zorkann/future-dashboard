@@ -1,6 +1,6 @@
-import { useCallback, useState } from "react";
-import { useResizeObserver } from "../../hooks/useResizeObserver";
-import clsx from "clsx";
+import { useCallback, useState } from 'react';
+import { useResizeObserver } from '../../hooks/useResizeObserver';
+import clsx from 'clsx';
 
 type ProgressBarProps = {
   label: string;
@@ -10,7 +10,7 @@ type ProgressBarProps = {
 
 type ProgressColumn = { id: number; highlighted: boolean };
 
-const COLOR_VARIANTS = ["bg-primary", "bg-secondary", "bg-secondary-700"];
+const COLOR_VARIANTS = ['bg-primary', 'bg-secondary', 'bg-secondary-700'];
 
 export function ProgressColumns({
   label,
@@ -31,10 +31,10 @@ export function ProgressColumns({
             id,
             highlighted: id < highlightedColumns,
           };
-        })
+        }),
       );
     },
-    [value]
+    [value],
   );
 
   const progressRef = useResizeObserver(onResize);
@@ -46,9 +46,9 @@ export function ProgressColumns({
         {columns.map(({ id, highlighted }) => (
           <div
             key={id}
-            className={clsx("w-[12px] rounded-sm", {
-              [COLOR_VARIANTS[colorVariant] || "bg-default"]: highlighted,
-              ["bg-default-800/70"]: !highlighted,
+            className={clsx('w-[12px] rounded-sm', {
+              [COLOR_VARIANTS[colorVariant] || 'bg-default']: highlighted,
+              ['bg-default-800/70']: !highlighted,
             })}
           />
         ))}

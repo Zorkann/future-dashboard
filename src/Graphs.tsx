@@ -1,14 +1,14 @@
-import { Graph1 } from "./Graph1";
-import { Graph2 } from "./Graph2";
-import { Graph3 } from "./Graph3";
-import { Graph4 } from "./Graph4";
-import { Graph5 } from "./Graph5";
-import { Graph6 } from "./Graph6";
-import { Graph7 } from "./Graph7";
-import { Graph8 } from "./Graph8";
-import { Graph9 } from "./Graph9";
-import { Graph10 } from "./Graph10";
-import { useGraphsContext } from "@features/themes";
+import { Graph1 } from './Graph1';
+import { Graph2 } from './Graph2';
+import { Graph3 } from './Graph3';
+import { Graph4 } from './Graph4';
+import { Graph5 } from './Graph5';
+import { Graph6 } from './Graph6';
+import { Graph7 } from './Graph7';
+import { Graph8 } from './Graph8';
+import { Graph9 } from './Graph9';
+import { Graph10 } from './Graph10';
+import { useGraphsContext } from '@features/themes';
 
 export function Graphs() {
   const { graphStates } = useGraphsContext();

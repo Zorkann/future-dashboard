@@ -1,20 +1,20 @@
-import { ProgressCircle } from "../components/ProgressCircle";
+import { ProgressCircle } from '../components/ProgressCircle';
 
 const DATA = [
   {
-    label: "MAGNA",
+    label: 'MAGNA',
     value: 878,
   },
   {
-    label: "VELIT",
+    label: 'VELIT',
     value: 618,
   },
   {
-    label: "DOLOR",
+    label: 'DOLOR',
     value: 500,
   },
   {
-    label: "CUPLA",
+    label: 'CUPLA',
     value: 221,
   },
 ];

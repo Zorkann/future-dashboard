@@ -1,4 +1,4 @@
-import { clsx } from "clsx";
+import { clsx } from 'clsx';
 
 type ProgressBarProps = {
   label: string;
@@ -7,22 +7,22 @@ type ProgressBarProps = {
 };
 
 const DEFAULT_VARIANT = {
-  color: "text-default",
-  bgColor: "[&::-webkit-progress-value]:bg-default",
+  color: 'text-default',
+  bgColor: '[&::-webkit-progress-value]:bg-default',
 };
 
 const COLOR_VARIANTS = [
   {
-    color: "text-primary",
-    bgColor: "[&::-webkit-progress-value]:bg-primary",
+    color: 'text-primary',
+    bgColor: '[&::-webkit-progress-value]:bg-primary',
   },
   {
-    color: "text-secondary",
-    bgColor: "[&::-webkit-progress-value]:bg-secondary",
+    color: 'text-secondary',
+    bgColor: '[&::-webkit-progress-value]:bg-secondary',
   },
   {
-    color: "text-secondary-700",
-    bgColor: "[&::-webkit-progress-value]:bg-secondary-700",
+    color: 'text-secondary-700',
+    bgColor: '[&::-webkit-progress-value]:bg-secondary-700',
   },
 ];
 
@@ -32,18 +32,18 @@ export function ProgressBar({ label, value, colorVariant }: ProgressBarProps) {
       <span className="font-bold uppercase min-w-14">{label}</span>
       <progress
         value={value}
-        max={"100"}
+        max={'100'}
         className={clsx(
-          "[&]:w-full [&]:h-1 [&]:rounded-lg [&::-webkit-progress-bar]:rounded-lg [&::-webkit-progress-bar]:bg-default-800/70 [&::-webkit-progress-value]:rounded-lg",
-          COLOR_VARIANTS[colorVariant]?.bgColor || DEFAULT_VARIANT.bgColor
+          '[&]:w-full [&]:h-1 [&]:rounded-lg [&::-webkit-progress-bar]:rounded-lg [&::-webkit-progress-bar]:bg-default-800/70 [&::-webkit-progress-value]:rounded-lg',
+          COLOR_VARIANTS[colorVariant]?.bgColor || DEFAULT_VARIANT.bgColor,
         )}
       >
         Progress Bar
       </progress>
       <span
         className={clsx(
-          "text-sm min-w-10 text-end",
-          COLOR_VARIANTS[colorVariant]?.color || DEFAULT_VARIANT.color
+          'text-sm min-w-10 text-end',
+          COLOR_VARIANTS[colorVariant]?.color || DEFAULT_VARIANT.color,
         )}
       >
         {value}%

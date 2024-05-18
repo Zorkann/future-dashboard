@@ -1,5 +1,5 @@
-import { THEMES } from "../const";
-import { Theme } from "../types";
+import { THEMES } from '../const';
+import { Theme } from '../types';
 
 export function assertIsTheme(value: string): asserts value is Theme {
   if (!THEMES.includes(value as Theme))

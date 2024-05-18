@@ -1,15 +1,15 @@
-import { ProgressBar } from "../components/ProgressBar";
+import { ProgressBar } from '../components/ProgressBar';
 const GRAPH_1_DATA = [
   {
-    label: "etc",
+    label: 'etc',
     value: 30,
   },
   {
-    label: "elit",
+    label: 'elit',
     value: 60,
   },
   {
-    label: "ess",
+    label: 'ess',
     value: 80,
   },
 ];

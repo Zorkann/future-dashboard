@@ -1,11 +1,11 @@
-import type { Graph10Data } from "./types";
+import type { Graph10Data } from './types';
 
 export const GRAPH_10_DATA: Graph10Data = {
   markers: {
     value: 9800,
     data: [
       {
-        label: "nisi",
+        label: 'nisi',
         points: [
           {
             coordinates: [10, 50],
@@ -47,7 +47,7 @@ export const GRAPH_10_DATA: Graph10Data = {
         value: 5600,
       },
       {
-        label: "elit",
+        label: 'elit',
         points: [
           {
             coordinates: [100, 50],

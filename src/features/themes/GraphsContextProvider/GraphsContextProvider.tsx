@@ -1,5 +1,5 @@
-import { createContext, useState, ReactNode } from "react";
-import { GraphState } from "../types";
+import { createContext, useState, ReactNode } from 'react';
+import { GraphState } from '../types';
 
 const initialGraphStates: GraphState = {
   Graph_1: true,

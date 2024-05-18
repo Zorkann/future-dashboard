@@ -1,5 +1,5 @@
-import clsx from "clsx";
-import { useState } from "react";
+import clsx from 'clsx';
+import { useState } from 'react';
 
 // TODO: MAKE IT RESPONSIVE < 300px
 const CIRCLE_SIZE = 120;
@@ -27,7 +27,7 @@ type DottedCircleType = {
 
 export function DottedCircle({ highlighted, className }: DottedCircleType) {
   const [START_ANIMATION_FROM] = useState<number>(
-    START_ANIMATION_INDEX ?? Math.floor(Math.random() * NUMBER_OF_CIRCLES)
+    START_ANIMATION_INDEX ?? Math.floor(Math.random() * NUMBER_OF_CIRCLES),
   );
 
   function getDelay(index: number) {
@@ -40,8 +40,8 @@ export function DottedCircle({ highlighted, className }: DottedCircleType) {
 
   return (
     <svg
-      width={"100%"}
-      height={"100%"}
+      width={'100%'}
+      height={'100%'}
       xmlns="http://www.w3.org/2000/svg"
       viewBox={`0 0 ${CIRCLE_SIZE} ${CIRCLE_SIZE}`}
     >
@@ -57,7 +57,7 @@ export function DottedCircle({ highlighted, className }: DottedCircleType) {
               animationDelay: `${getDelay(index) / ANIMATION_SPEED}s`,
               animationDuration: `${NUMBER_OF_CIRCLES / ANIMATION_SPEED}s`,
             }}
-            className={clsx("animate-bubble-up", className)}
+            className={clsx('animate-bubble-up', className)}
           />
         );
       })}

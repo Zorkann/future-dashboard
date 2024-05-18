@@ -1,5 +1,5 @@
-import { DottedCircle } from "./DottedCircle";
-import clsx from "clsx";
+import { DottedCircle } from './DottedCircle';
+import clsx from 'clsx';
 
 type DottedCircleBlockProps = {
   label: string;
@@ -9,7 +9,7 @@ type DottedCircleBlockProps = {
   highlighted?: boolean;
 };
 
-const COLOR_VARIANTS = ["fill-primary", "fill-secondary", "fill-secondary-700"];
+const COLOR_VARIANTS = ['fill-primary', 'fill-secondary', 'fill-secondary-700'];
 
 export function DottedCircleBlock({
   label,
@@ -26,7 +26,7 @@ export function DottedCircleBlock({
         </span>
         <DottedCircle
           highlighted={highlighted}
-          className={clsx(COLOR_VARIANTS[colorVariant] || "fill-zinc-600")}
+          className={clsx(COLOR_VARIANTS[colorVariant] || 'fill-zinc-600')}
         />
       </div>
       <div className="font-bold uppercase text-sm">{label}</div>

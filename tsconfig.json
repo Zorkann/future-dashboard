@@ -11,7 +11,7 @@
       "@components/*": ["src/components/*"],
       "@features/*": ["src/features/*"],
       "@hooks/*": ["src/hooks/*"],
-      "@utils/*": ["src/utils/*"],
+      "@utils/*": ["src/utils/*"]
     },
 
     /* Bundler mode */
@@ -28,7 +28,7 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedIndexedAccess": true,
-    "strictNullChecks": true,
+    "strictNullChecks": true
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

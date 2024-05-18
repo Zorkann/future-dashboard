@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
 type ProgressCircleProps = {
   value: number;
@@ -8,10 +8,10 @@ type ProgressCircleProps = {
 };
 
 const COLOR_VARIANTS = [
-  "stroke-primary",
-  "stroke-secondary",
-  "stroke-secondary-700",
-  "stroke-secondary-800",
+  'stroke-primary',
+  'stroke-secondary',
+  'stroke-secondary-700',
+  'stroke-secondary-800',
 ];
 
 const MAX_DATA = 1000;
@@ -35,12 +35,12 @@ export function ProgressCircle({
           {value}
         </span>
         <svg
-          width={"100%"}
-          height={"100%"}
+          width={'100%'}
+          height={'100%'}
           viewBox={`0, 0, 120, 120`}
           version="1.1"
           xmlns="http://www.w3.org/2000/svg"
-          style={{ transform: "rotate(-90deg)" }}
+          style={{ transform: 'rotate(-90deg)' }}
         >
           <circle
             className="stroke-zinc-800/50 fill-transparent"
@@ -53,7 +53,7 @@ export function ProgressCircle({
             r={CIRCLE_RADIUS}
             cx={60}
             cy={60}
-            className={clsx("fill-transparent", color)}
+            className={clsx('fill-transparent', color)}
             strokeWidth={10}
             strokeDasharray={CIRCUMFERENCE}
             strokeDashoffset={offset}

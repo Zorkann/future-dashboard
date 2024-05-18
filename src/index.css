@@ -22,7 +22,7 @@ body {
 }
 
 @layer base {
-  :root[data-theme="water"] {
+  :root[data-theme='water'] {
     --color-primary: 94, 234, 212; /* Teal-300 */
     --color-primary-400: 45, 212, 191; /* Teal-400 */
     --color-secondary: 59, 130, 246; /* Blue-500 */
@@ -33,7 +33,7 @@ body {
     --color-background: 15, 23, 42; /* Slate-900 */
     --color-text: 255, 255, 255;
   }
-  :root[data-theme="fire"] {
+  :root[data-theme='fire'] {
     --color-primary: 252, 165, 165; /* Red-300 */
     --color-primary-400: 248, 113, 113; /* Red-400 */
     --color-secondary: 249, 115, 22; /* Orange-500 */
@@ -44,7 +44,7 @@ body {
     --color-background: 15, 23, 42; /* Slate-900 */
     --color-text: 255, 255, 255;
   }
-  :root[data-theme="light"] {
+  :root[data-theme='light'] {
     --color-primary: 94, 234, 212; /* Teal-300 */
     --color-primary-400: 45, 212, 191; /* Teal-400 */
     --color-secondary: 59, 130, 246; /* Blue-500 */

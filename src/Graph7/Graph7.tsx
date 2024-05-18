@@ -1,5 +1,5 @@
-import { Bar, BarChart, ResponsiveContainer } from "recharts";
-import { EllipseBar } from "./EllipseBar";
+import { Bar, BarChart, ResponsiveContainer } from 'recharts';
+import { EllipseBar } from './EllipseBar';
 
 const GRAPH_8_DATA = [
   { uv: 1800 },
@@ -48,14 +48,14 @@ export function Graph7() {
                 className="text-secondary"
                 stopOpacity={0.9}
                 style={{
-                  stopColor: "currentColor",
+                  stopColor: 'currentColor',
                 }}
               />
               <stop
                 offset="95%"
                 className="text-primary"
                 style={{
-                  stopColor: "currentColor",
+                  stopColor: 'currentColor',
                 }}
                 stopOpacity={0.9}
               />
@@ -70,7 +70,7 @@ export function Graph7() {
                 offset="15%"
                 className="text-secondary"
                 style={{
-                  stopColor: "currentColor",
+                  stopColor: 'currentColor',
                 }}
                 stopOpacity={0.9}
               />
@@ -78,7 +78,7 @@ export function Graph7() {
                 offset="95%"
                 className="text-primary"
                 style={{
-                  stopColor: "currentColor",
+                  stopColor: 'currentColor',
                 }}
                 stopOpacity={0.9}
               />

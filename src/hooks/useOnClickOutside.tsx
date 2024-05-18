@@ -1,7 +1,7 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef } from 'react';
 
 export function useOnClickOutside<T extends HTMLElement>(
-  callback: (event: MouseEvent | TouchEvent) => void
+  callback: (event: MouseEvent | TouchEvent) => void,
 ): React.RefObject<T> {
   const ref = useRef<T>(null);
 
@@ -14,12 +14,12 @@ export function useOnClickOutside<T extends HTMLElement>(
       }
     };
 
-    document.addEventListener("mousedown", handleClick, true);
-    document.addEventListener("touchstart", handleClick, true);
+    document.addEventListener('mousedown', handleClick, true);
+    document.addEventListener('touchstart', handleClick, true);
 
     return () => {
-      document.removeEventListener("mousedown", handleClick, true);
-      document.removeEventListener("touchstart", handleClick, true);
+      document.removeEventListener('mousedown', handleClick, true);
+      document.removeEventListener('touchstart', handleClick, true);
     };
     // TODO: CALLBACK SHOULD BE MEMOIZED
   }, [callback, ref]);

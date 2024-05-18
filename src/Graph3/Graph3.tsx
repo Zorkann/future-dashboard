@@ -1,16 +1,16 @@
-import { ProgressColumns } from "../components/ProgressColumns";
+import { ProgressColumns } from '../components/ProgressColumns';
 
 const GRAPH_3_DATA = [
   {
-    label: "cillum",
+    label: 'cillum',
     value: 30,
   },
   {
-    label: "molit",
+    label: 'molit',
     value: 60,
   },
   {
-    label: "fugiat",
+    label: 'fugiat',
     value: 80,
   },
 ];
