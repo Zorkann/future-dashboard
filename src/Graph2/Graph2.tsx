@@ -53,6 +53,7 @@ export function Graph2() {
 				console.error("Błąd pobierania danych:", error);
 			});
 	}, []);
+
 	return (
 		<ResponsiveContainer width="100%" height="100%">
 			<LineChart
