@@ -1,10 +1,10 @@
-import { useRef } from "react";
+import { useRef } from 'react';
 import {
   Transition,
   SwitchTransition,
   TransitionStatus,
-} from "react-transition-group";
-import type { Event } from "./types";
+} from 'react-transition-group';
+import type { Event } from './types';
 
 const LABEL_ANIMATION_DURATION = 200;
 const DOT_ANIMATION_DURATION = LABEL_ANIMATION_DURATION * 4;
@@ -12,9 +12,9 @@ const DOT_ANIMATION_DURATION = LABEL_ANIMATION_DURATION * 4;
 const TRANSITION_STYLES: Partial<
   Record<TransitionStatus, React.CSSProperties>
 > = {
-  entering: { transform: "translateY(-10px)", opacity: 0 },
-  entered: { transform: "translateY(0px)", opacity: 1 },
-  exiting: { transform: "translateY(10px)", opacity: 0 },
+  entering: { transform: 'translateY(-10px)', opacity: 0 },
+  entered: { transform: 'translateY(0px)', opacity: 1 },
+  exiting: { transform: 'translateY(10px)', opacity: 0 },
 };
 
 function getDefaultStyles(duration: number) {
@@ -24,12 +24,12 @@ function getDefaultStyles(duration: number) {
 }
 
 type EventBadgeProps = {
-  selectedEventName?: Event["name"];
+  selectedEventName?: Event['name'];
   dotRef: React.RefObject<SVGSVGElement>;
 };
 
 export function EventBadge({
-  selectedEventName = "Planned events",
+  selectedEventName = 'Planned events',
   dotRef,
 }: EventBadgeProps) {
   const textRef = useRef<HTMLSpanElement>(null);
@@ -49,7 +49,7 @@ export function EventBadge({
             height={12}
             xmlns="http://www.w3.org/2000/svg"
           >
-            <circle cx="50%" cy="50%" r='50%' className="fill-primary" />
+            <circle cx="50%" cy="50%" r="50%" className="fill-primary" />
           </svg>
         </div>
         <SwitchTransition>

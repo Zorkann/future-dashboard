@@ -5,35 +5,35 @@ import {
   YAxis,
   CartesianGrid,
   ResponsiveContainer,
-} from "recharts";
+} from 'recharts';
 
 const data = [
   {
-    name: "2020",
+    name: '2020',
     uv: 0,
     pv: 0,
     amt: 0,
   },
   {
-    name: "2021",
+    name: '2021',
     uv: 20,
     pv: 60,
     amt: 22,
   },
   {
-    name: "2022",
+    name: '2022',
     uv: 27,
     pv: 39,
     amt: 20,
   },
   {
-    name: "2023",
+    name: '2023',
     uv: 18,
     pv: 48,
     amt: 21,
   },
   {
-    name: "2024",
+    name: '2024',
     uv: 23,
     pv: 38,
     amt: 25,
@@ -58,7 +58,7 @@ export function Graph2() {
           dataKey="name"
           tickLine={false}
           axisLine={{
-            className: "stroke-default-800",
+            className: 'stroke-default-800',
           }}
           tickMargin={10}
           stroke="currentColor"
@@ -67,7 +67,7 @@ export function Graph2() {
         <YAxis
           tickLine={false}
           axisLine={{
-            className: "stroke-default-800",
+            className: 'stroke-default-800',
           }}
           tickMargin={10}
           stroke="currentColor"

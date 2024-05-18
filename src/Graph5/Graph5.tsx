@@ -1,4 +1,4 @@
-import { AreaChart, Area, ResponsiveContainer } from "recharts";
+import { AreaChart, Area, ResponsiveContainer } from 'recharts';
 
 const DATA = [
   { uv: 1800 },
@@ -24,7 +24,7 @@ export function Graph5() {
         <div className="bg-primary h-2 w-2 rounded-full block" />
       </div>
 
-      <ResponsiveContainer width={"100%"} height={"100%"}>
+      <ResponsiveContainer width={'100%'} height={'100%'}>
         <AreaChart
           width={200}
           height={60}

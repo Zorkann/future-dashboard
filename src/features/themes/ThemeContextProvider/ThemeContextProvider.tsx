@@ -1,12 +1,12 @@
-import { createContext, ReactNode, useState } from "react";
-import { assertIsTheme } from "../utils/assertIsTheme";
-import { THEMES } from "../const";
-import { Theme } from "../types";
+import { createContext, ReactNode, useState } from 'react';
+import { assertIsTheme } from '../utils/assertIsTheme';
+import { THEMES } from '../const';
+import { Theme } from '../types';
 
-const LS_THEME_KEY = "theme";
+const LS_THEME_KEY = 'theme';
 
 function setUpThemeInDOM(value: Theme) {
-  document.querySelector("html")?.setAttribute("data-theme", value);
+  document.querySelector('html')?.setAttribute('data-theme', value);
 
   window.localStorage.setItem(LS_THEME_KEY, value);
 

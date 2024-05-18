@@ -1,4 +1,4 @@
-import { BarProps } from "recharts";
+import { BarProps } from 'recharts';
 
 const RY = 5;
 

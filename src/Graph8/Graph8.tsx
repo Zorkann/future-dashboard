@@ -1,4 +1,4 @@
-import { BarChart, Bar, ResponsiveContainer } from "recharts";
+import { BarChart, Bar, ResponsiveContainer } from 'recharts';
 
 function generateRandomNumbers() {
   const data = [];
@@ -17,7 +17,6 @@ const randomNumbersArray = generateRandomNumbers();
 
 const HIGHEST_UV_VALUE = Math.max(...randomNumbersArray.map((item) => item.uv));
 export function Graph8() {
-
   return (
     <div>
       <ResponsiveContainer width="100%" height={150}>
@@ -29,14 +28,14 @@ export function Graph8() {
                 className="text-primary-400"
                 stopOpacity={0.8}
                 style={{
-                  stopColor: "currentColor",
+                  stopColor: 'currentColor',
                 }}
               />
               <stop
                 offset="95%"
                 className="text-secondary-700"
                 style={{
-                  stopColor: "currentColor",
+                  stopColor: 'currentColor',
                 }}
                 stopOpacity={0.2}
               />

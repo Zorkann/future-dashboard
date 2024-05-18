@@ -1,9 +1,9 @@
-import "./App.css";
+import './App.css';
 
-import { Header } from "@components/Header";
-import { DashboardDrawer } from "@components/DashboardDrawer";
-import { GraphsContextProvider } from "@features/themes";
-import { Graphs } from "./Graphs";
+import { Header } from '@components/Header';
+import { DashboardDrawer } from '@components/DashboardDrawer';
+import { GraphsContextProvider } from '@features/themes';
+import { Graphs } from './Graphs';
 
 function App() {
   return (

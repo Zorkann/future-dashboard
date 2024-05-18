@@ -1,21 +1,21 @@
-import { DottedCircleBlock } from "../components/DottedCircleBlock";
+import { DottedCircleBlock } from '../components/DottedCircleBlock';
 const GRAPH_4_DATA = [
   {
-    label: "lorem",
+    label: 'lorem',
     description:
-      "example description of graph 4 data, example some text blabla",
+      'example description of graph 4 data, example some text blabla',
     value: 878,
   },
   {
-    label: "ipsum",
+    label: 'ipsum',
     description:
-      "example description of graph 4 data, example some text blabla",
+      'example description of graph 4 data, example some text blabla',
     value: 618,
   },
   {
-    label: "dolor",
+    label: 'dolor',
     description:
-      "example description of graph 4 data, example some text blabla",
+      'example description of graph 4 data, example some text blabla',
     value: 521,
   },
 ];

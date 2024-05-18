@@ -1,1 +1,1 @@
-export { Graph10 } from "./Graph10";
+export { Graph10 } from './Graph10';
