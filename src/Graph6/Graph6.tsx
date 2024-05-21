@@ -3,7 +3,6 @@ import { MonthView, TileDisabledFunc } from "react-calendar";
 import { EventBadge } from "./EventBadge";
 import type { Event } from "./types";
 import { groupBy } from "../utils/groupBy";
-import { useEffect } from "react";
 
 const EVENTS: Event[] = [
 	{
@@ -41,16 +40,6 @@ const isTileDisabled: TileDisabledFunc = ({ date }) => {
 };
 
 export function Graph6() {
-	useEffect(() => {
-		fetch("http://localhost:3000/graphData6")
-			.then((response) => response.json())
-			.then((data) => {
-				console.log("graphData6", data);
-			})
-			.catch((error) => {
-				console.error("Błąd pobierania danych:", error);
-			});
-	}, []);
 	const [selectedEvent, setSelectedEvent] = useState<Event | undefined>(
 		EVENTS[0]
 	);

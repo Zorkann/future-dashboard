@@ -1,6 +1,5 @@
 import { Bar, BarChart, ResponsiveContainer } from "recharts";
 import { EllipseBar } from "./EllipseBar";
-import { useEffect } from "react";
 
 const GRAPH_8_DATA = [
 	{ uv: 1800 },
@@ -26,16 +25,6 @@ const CHART_MARGIN = {
 };
 
 export function Graph7() {
-	useEffect(() => {
-		fetch("http://localhost:3000/graphData7")
-			.then((response) => response.json())
-			.then((data) => {
-				console.log("graphData7", data);
-			})
-			.catch((error) => {
-				console.error("Błąd pobierania danych:", error);
-			});
-	}, []);
 	return (
 		<div className="flex flex-col gap-2 h-full w-full">
 			<div className="flex items-center gap-3">

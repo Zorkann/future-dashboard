@@ -1,5 +1,5 @@
 import { BarChart, Bar, ResponsiveContainer } from "recharts";
-import { useEffect } from "react";
+
 function generateRandomNumbers() {
 	const data = [];
 	for (let i = 0; i < 150; i++) {
@@ -17,17 +17,6 @@ const randomNumbersArray = generateRandomNumbers();
 
 const HIGHEST_UV_VALUE = Math.max(...randomNumbersArray.map((item) => item.uv));
 export function Graph8() {
-	useEffect(() => {
-		fetch("http://localhost:3000/graphData8")
-			.then((response) => response.json())
-			.then((data) => {
-				console.log("graphData8", data);
-			})
-			.catch((error) => {
-				console.error("Błąd pobierania danych:", error);
-			});
-	}, []);
-
 	return (
 		<div>
 			<ResponsiveContainer width="100%" height={150}>

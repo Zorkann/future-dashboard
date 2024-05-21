@@ -6,58 +6,22 @@ import {
 	CartesianGrid,
 	ResponsiveContainer,
 } from "recharts";
-import { useEffect } from "react";
-
-const data = [
-	{
-		name: "2020",
-		uv: 0,
-		pv: 0,
-		amt: 0,
-	},
-	{
-		name: "2021",
-		uv: 20,
-		pv: 60,
-		amt: 22,
-	},
-	{
-		name: "2022",
-		uv: 27,
-		pv: 39,
-		amt: 20,
-	},
-	{
-		name: "2023",
-		uv: 18,
-		pv: 48,
-		amt: 21,
-	},
-	{
-		name: "2024",
-		uv: 23,
-		pv: 38,
-		amt: 25,
-	},
-];
+import { useGetGraph2Data } from "../../src/api/getGraph2Data";
 
 // TODO: HOW TO GET CSS HEX FROM TAILWIND
 export function Graph2() {
-	useEffect(() => {
-		fetch("http://localhost:3000/graphData2")
-			.then((response) => response.json())
-			.then((data) => {
-				console.log("graphData2", data);
-			})
-			.catch((error) => {
-				console.error("Błąd pobierania danych:", error);
-			});
-	}, []);
+	const { status, data } = useGetGraph2Data();
 
+	if (status === "pending") return <h2>Loading...</h2>;
+
+	if (status === "error") return <h2>Error</h2>;
+
+	console.log(data);
+	console.log(data.data);
 	return (
 		<ResponsiveContainer width="100%" height="100%">
 			<LineChart
-				data={data}
+				data={data.data}
 				margin={{
 					top: 5,
 					right: 20,

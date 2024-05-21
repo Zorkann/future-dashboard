@@ -1,15 +1,12 @@
-import { ProgressBar } from "../components/ProgressBar";
-
-import { getGraph1Data } from "../../src/api/getGraph1Data";
-import { useQuery } from "@tanstack/react-query";
+import { ProgressBar } from "@components/ProgressBar";
+import { useGetGraph1Data } from "../../src/api/getGraph1Data";
 
 export function Graph1() {
-	// const { status, data } = useGetGraph1Data();
-	const { status, data } = useQuery({
-		queryKey: ["super-heroes"],
-		queryFn: getGraph1Data,
-	});
-
+	const { status, data } = useGetGraph1Data();
+	// const { status, data } = useQuery({
+	// 	queryKey: ["Graph1Data"],
+	// 	queryFn: getGraph1Data,
+	// });
 	if (status === "pending") return <h2>Loading...</h2>;
 
 	if (status === "error") return <h2>Error</h2>;

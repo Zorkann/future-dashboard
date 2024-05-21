@@ -1,5 +1,4 @@
 import { AreaChart, Area, ResponsiveContainer } from "recharts";
-import { useEffect } from "react";
 
 const DATA = [
 	{ uv: 1800 },
@@ -18,16 +17,6 @@ const DATA = [
 const HIGHEST_UV_VALUE = Math.max(...DATA.map((item) => item.uv));
 
 export function Graph5() {
-	useEffect(() => {
-		fetch("http://localhost:3000/graphData5")
-			.then((response) => response.json())
-			.then((data) => {
-				console.log("graphData5", data);
-			})
-			.catch((error) => {
-				console.error("Błąd pobierania danych:", error);
-			});
-	}, []);
 	return (
 		<div className="flex flex-col gap-4 h-full w-full">
 			<div>

@@ -1,5 +1,4 @@
 import { ProgressCircle } from "../components/ProgressCircle";
-import { useEffect } from "react";
 
 const DATA = [
 	{
@@ -21,16 +20,6 @@ const DATA = [
 ];
 
 export function Graph10() {
-	useEffect(() => {
-		fetch("http://localhost:3000/graphData10")
-			.then((response) => response.json())
-			.then((data) => {
-				console.log("graphData10", data);
-			})
-			.catch((error) => {
-				console.error("Błąd pobierania danych:", error);
-			});
-	}, []);
 	return (
 		<div className="flex flex-col w-full h-full gap-4">
 			<div className="flex items-center gap-3">

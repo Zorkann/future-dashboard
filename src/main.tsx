@@ -4,6 +4,8 @@ import App from "./App.tsx";
 import "./index.css";
 import { ThemeContextProvider } from "@features/themes";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
+
 const queryClient = new QueryClient({
 	defaultOptions: {
 		queries: {
@@ -18,6 +20,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 			<ThemeContextProvider>
 				<App />
 			</ThemeContextProvider>
+			<ReactQueryDevtools initialIsOpen={false} />
 		</QueryClientProvider>
 	</React.StrictMode>
 );

@@ -1,5 +1,5 @@
 {
-	"graphData1": [
+	"graph1Data": [
 		{
 			"label": "etc",
 			"value": 30
@@ -13,19 +13,8 @@
 			"value": 80
 		}
 	],
-	"superheroes": [
-		{
-			"id": 1,
-			"name": "Batman",
-			"alterEgo": "bruce Wayne"
-		},
-		{
-			"id": 2,
-			"name": "Superman",
-			"alterEgo": "Clark Kent"
-		}
-	],
-	"graphData2": [
+
+	"graph2Data": [
 		{
 			"name": "2020",
 			"uv": 0,
