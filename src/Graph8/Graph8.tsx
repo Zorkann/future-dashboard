@@ -1,26 +1,18 @@
 import { BarChart, Bar, ResponsiveContainer } from "recharts";
+import { useGetGraph8Data } from "../../src/api/getGraph8Data";
 
-function generateRandomNumbers() {
-	const data = [];
-	for (let i = 0; i < 150; i++) {
-		const randomNumber = Math.floor(Math.random() * 1001);
-
-		if (randomNumber > 300) {
-			const uvObject = { uv: randomNumber };
-			data.push(uvObject);
-		}
-	}
-
-	return data;
-}
-const randomNumbersArray = generateRandomNumbers();
-
-const HIGHEST_UV_VALUE = Math.max(...randomNumbersArray.map((item) => item.uv));
 export function Graph8() {
+	const { status, data } = useGetGraph8Data();
+
+	if (status === "pending") return <h2>Loading...</h2>;
+
+	if (status === "error") return <h2>Error</h2>;
+
+	const HIGHEST_UV_VALUE = Math.max(...data.data.map((item) => item.uv));
 	return (
 		<div>
 			<ResponsiveContainer width="100%" height={150}>
-				<BarChart width={150} height={40} data={randomNumbersArray}>
+				<BarChart width={150} height={40} data={data.data}>
 					<defs>
 						<linearGradient id="graph9-colorUV" x1="0" y1="0" x2="0" y2="1">
 							<stop

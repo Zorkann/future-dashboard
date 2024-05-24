@@ -1,22 +1,14 @@
 import { AreaChart, Area, ResponsiveContainer } from "recharts";
-
-const DATA = [
-	{ uv: 1800 },
-	{ uv: 2400 },
-	{ uv: 1400 },
-	{ uv: 2800 },
-	{ uv: 2000 },
-	{ uv: 2600 },
-	{ uv: 1700 },
-	{ uv: 2400 },
-	{ uv: 1000 },
-	{ uv: 3400 },
-	{ uv: 900 },
-];
-
-const HIGHEST_UV_VALUE = Math.max(...DATA.map((item) => item.uv));
+import { useGetGraph5Data } from "../../src/api/getGraph5Data";
 
 export function Graph5() {
+	const { status, data } = useGetGraph5Data();
+
+	if (status === "pending") return <h2>Loading...</h2>;
+
+	if (status === "error") return <h2>Error</h2>;
+
+	const HIGHEST_UV_VALUE = Math.max(...data.data.map((item) => item.uv));
 	return (
 		<div className="flex flex-col gap-4 h-full w-full">
 			<div>
@@ -28,7 +20,7 @@ export function Graph5() {
 				<AreaChart
 					width={200}
 					height={60}
-					data={DATA}
+					data={data.data}
 					margin={{
 						top: 5,
 						right: 0,

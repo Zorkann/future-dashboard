@@ -1,21 +1,6 @@
 import { Bar, BarChart, ResponsiveContainer } from "recharts";
 import { EllipseBar } from "./EllipseBar";
-
-const GRAPH_8_DATA = [
-	{ uv: 1800 },
-	{ uv: 2400 },
-	{ uv: 1400 },
-	{ uv: 2800 },
-	{ uv: 2000 },
-	{ uv: 2600 },
-	{ uv: 1700 },
-	{ uv: 2400 },
-	{ uv: 1000 },
-	{ uv: 3400 },
-	{ uv: 900 },
-];
-
-const HIGHEST_UV_VALUE = Math.max(...GRAPH_8_DATA.map((item) => item.uv));
+import { useGetGraph7Data } from "../../src/api/getGraph7Data";
 
 const CHART_MARGIN = {
 	top: 10,
@@ -25,6 +10,12 @@ const CHART_MARGIN = {
 };
 
 export function Graph7() {
+	const { status, data } = useGetGraph7Data();
+	if (status === "pending") return <h2>Loading...</h2>;
+
+	if (status === "error") return <h2>Error</h2>;
+
+	const HIGHEST_UV_VALUE = Math.max(...data.data.map((item) => item.uv));
 	return (
 		<div className="flex flex-col gap-2 h-full w-full">
 			<div className="flex items-center gap-3">
@@ -40,7 +31,7 @@ export function Graph7() {
 			</span>
 
 			<ResponsiveContainer width="100%" height="100%">
-				<BarChart data={GRAPH_8_DATA} margin={CHART_MARGIN}>
+				<BarChart data={data.data} margin={CHART_MARGIN}>
 					<defs>
 						<linearGradient id="graph8-colorUV">
 							<stop
