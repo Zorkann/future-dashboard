@@ -16,8 +16,6 @@ export function Graph2() {
 
 	if (status === "error") return <h2>Error</h2>;
 
-	console.log(data);
-	console.log(data.data);
 	return (
 		<ResponsiveContainer width="100%" height="100%">
 			<LineChart

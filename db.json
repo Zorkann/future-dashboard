@@ -90,20 +90,6 @@
 		{ "uv": 3400 },
 		{ "uv": 900 }
 	],
-	"graph6Data": [
-		{
-			"name": "Some planned event 1",
-			"date": "2024-03-14T00:00:00.000Z"
-		},
-		{
-			"name": "Some planned event 2",
-			"date": "2024-03-17T00:00:00.000Z"
-		},
-		{
-			"name": "Some planned event 3 long long text event",
-			"date": "2024-03-23T00:00:00.000Z"
-		}
-	],
 	"graph7Data": [
 		{ "uv": 1800 },
 		{ "uv": 2400 },
@@ -431,7 +417,7 @@
 			"uv": 419
 		}
 	],
-	"graphData9": {
+	"graph9Data": {
 		"markers": {
 			"value": 9800,
 			"data": [

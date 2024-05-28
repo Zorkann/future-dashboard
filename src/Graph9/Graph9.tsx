@@ -2,9 +2,14 @@ import { ComposableMap, Geographies, Geography } from "react-simple-maps";
 import countries from "./features.json";
 import { Markers } from "./components/Markers";
 import { Legend } from "./components/Legend";
-import { GRAPH_9_DATA } from "./data";
+import { useGetGraph9Data } from "../../src/api/getGraph9Data";
 
 export function Graph9() {
+	const { status, data } = useGetGraph9Data();
+	if (status === "pending") return <h2>Loading...</h2>;
+
+	if (status === "error") return <h2>Error</h2>;
+
 	return (
 		<div className="flex flex-col w-full h-full gap-4 justify-between">
 			<span className="uppercase font-bold">excepteur</span>
@@ -25,9 +30,9 @@ export function Graph9() {
 						))
 					}
 				</Geographies>
-				<Markers markersData={GRAPH_9_DATA.markers} />
+				<Markers markersData={data.markers} />
 			</ComposableMap>
-			<Legend markersData={GRAPH_9_DATA.markers} />
+			<Legend markersData={data.markers} />
 		</div>
 	);
 }
