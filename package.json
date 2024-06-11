@@ -8,10 +8,15 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "format": "prettier --write ."
+    "start": "json-server --watch db.json & npm run dev"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.37.1",
+    "@tanstack/react-query-devtools": "5.37.1",
+    "@types/react-query": "^1.2.9",
+    "axios": "^1.7.1",
     "clsx": "^2.1.0",
+    "json-server": "^1.0.0-beta.0",
     "react": "^18.2.0",
     "react-calendar": "^4.8.0",
     "react-dom": "^18.2.0",
@@ -20,6 +25,7 @@
     "recharts": "^2.12.2"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.35.6",
     "@types/react": "^18.2.56",
     "@types/react-dom": "^18.2.19",
     "@types/react-simple-maps": "^3.0.4",
@@ -32,7 +38,6 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.5",
     "postcss": "^8.4.35",
-    "prettier": "^3.2.5",
     "tailwindcss": "^3.4.1",
     "typescript": "^5.2.2",
     "vite": "^5.1.4"

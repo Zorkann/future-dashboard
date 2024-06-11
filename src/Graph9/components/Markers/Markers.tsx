@@ -1,9 +1,9 @@
-import { Marker } from 'react-simple-maps';
-import clsx from 'clsx';
-import type { Graph10Data } from '../../types';
+import { Marker } from "react-simple-maps";
+import clsx from "clsx";
+import type { Graph9ApiResponse } from "src/api/getGraph9Data";
 
 type MarkersProps = {
-  markersData: Graph10Data['markers'];
+	markersData: Graph9ApiResponse["markers"];
 };
 
 const COLOR_VARIANTS = ['fill-primary', 'fill-secondary', 'fill-secondary-700'];

@@ -83,3 +83,4 @@ export const GRAPH_10_DATA: Graph10Data = {
     ],
   },
 };
+

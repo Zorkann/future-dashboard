@@ -1,13 +1,13 @@
-import type { Graph10Data } from '../../types';
-import { Line, LineChart, ResponsiveContainer } from 'recharts';
+import { Line, LineChart, ResponsiveContainer } from "recharts";
+import type { Graph9ApiResponse } from "src/api/getGraph9Data";
 
 type LegendProps = {
-  markersData: Graph10Data['markers'];
+	markersData: Graph9ApiResponse["markers"];
 };
 
 /** This will generate 0 points for the beginning and end of a data. It's required for smooth animation between beginning and end of a dataset*/
 function addZeroPointsForMarkersData(
-  dataset: Graph10Data['markers']['data'][number],
+	dataset: Graph9ApiResponse["markers"]["data"][number]
 ) {
   return [
     { value: 0 },

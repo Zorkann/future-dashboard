@@ -1,31 +1,26 @@
-import { ProgressBar } from '../components/ProgressBar';
-const GRAPH_1_DATA = [
-  {
-    label: 'etc',
-    value: 30,
-  },
-  {
-    label: 'elit',
-    value: 60,
-  },
-  {
-    label: 'ess',
-    value: 80,
-  },
-];
+import { ProgressBar } from "@components/ProgressBar";
+import { useGetGraph1Data } from "../../src/api/getGraph1Data";
 
-// TODO: USE GRID INSTEAD OF FLEX
 export function Graph1() {
-  return (
-    <div className="flex flex-col h-full gap-1">
-      {GRAPH_1_DATA.map(({ label, value }, index) => (
-        <ProgressBar
-          key={label}
-          label={label}
-          value={value}
-          colorVariant={index}
-        />
-      ))}
-    </div>
-  );
+	const { status, data } = useGetGraph1Data();
+	// const { status, data } = useQuery({
+	// 	queryKey: ["Graph1Data"],
+	// 	queryFn: getGraph1Data,
+	// });
+	if (status === "pending") return <h2>Loading...</h2>;
+
+	if (status === "error") return <h2>Error</h2>;
+
+	return (
+		<div className="flex flex-col h-full gap-1">
+			{data.data.map(({ label, value }, index) => (
+				<ProgressBar
+					key={label}
+					label={label}
+					value={value}
+					colorVariant={index}
+				/>
+			))}
+		</div>
+	);
 }
