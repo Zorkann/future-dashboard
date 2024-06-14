@@ -25,13 +25,24 @@ export const GraphsContext = createContext<GraphsContextType | undefined>({
 });
 
 export function GraphsContextProvider({ children }: { children: ReactNode }) {
-  const [graphStates, setGraphStates] = useState(initialGraphStates);
+  const [graphStates, setGraphStates] = useState(() => {
+    const storedGraphStates = localStorage.getItem('graphStates');
+    return storedGraphStates
+      ? JSON.parse(storedGraphStates)
+      : initialGraphStates;
+  });
 
   const toggleGraphVisibility = (graphName: keyof GraphState) => {
-    setGraphStates((prevGraphStates) => ({
-      ...prevGraphStates,
-      [graphName]: !prevGraphStates[graphName],
-    }));
+    setGraphStates((prevGraphStates: GraphState) => {
+      const updatedGraphStates = {
+        ...prevGraphStates,
+        [graphName]: !prevGraphStates[graphName],
+      };
+
+      localStorage.setItem('graphStates', JSON.stringify(updatedGraphStates));
+
+      return updatedGraphStates;
+    });
   };
 
   return (
