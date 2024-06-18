@@ -55,6 +55,11 @@ export function DashboardDrawer({ ...rest }: DashboardDrawerProps) {
           label="Select All"
           control={
             <Checkbox
+              sx={{
+                '&.Mui-checked': {
+                  color: `rgb(var(--color-secondary))`,
+                },
+              }}
               checked={checked.every(Boolean)}
               indeterminate={checked.some(Boolean) && !checked.every(Boolean)}
               onChange={handleChangeAll}
@@ -69,7 +74,11 @@ export function DashboardDrawer({ ...rest }: DashboardDrawerProps) {
             <FormControlLabel
               control={
                 <Checkbox
-                  className="accent-secondary-800"
+                  sx={{
+                    '&.Mui-checked': {
+                      color: `rgb(var(--color-secondary))`,
+                    },
+                  }}
                   checked={checked[index]}
                   onChange={handleChange(index)}
                 />

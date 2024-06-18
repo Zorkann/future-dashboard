@@ -18,7 +18,6 @@ type GraphsContextType = {
   graphStates: GraphState;
   toggleGraphVisibility: (graphName: keyof GraphState) => void;
 };
-
 export const GraphsContext = createContext<GraphsContextType | undefined>({
   graphStates: initialGraphStates,
   toggleGraphVisibility: () => null,
