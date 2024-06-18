@@ -1,10 +1,11 @@
 import { DrawerProps, Drawer } from '../Drawer';
-import { CheckboxButton } from '@components/CheckboxButton';
+// import { CheckboxButton } from '@components/CheckboxButton';
 import { useGraphsContext } from '@features/themes/hooks/useGraphsContext';
 import { GraphState } from '@features/themes/types';
-import Box from '@mui/material/Box';
 import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import Box from '@mui/material/Box';
+import { useState } from 'react';
 
 type DashboardDrawerProps = DrawerProps;
 
@@ -27,19 +28,57 @@ export function DashboardDrawer({ ...rest }: DashboardDrawerProps) {
     keyof typeof graphStates
   >;
 
+  const [checked, setChecked] = useState(
+    graphStatesKeys.map((key) => graphStates[key]),
+  );
+
+  const handleChangeAll = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const newChecked = graphStatesKeys.map(() => event.target.checked);
+    setChecked(newChecked);
+    graphStatesKeys.forEach((key, index) => {
+      toggleGraphVisibility(key, newChecked[index]);
+    });
+  };
+
+  const handleChange =
+    (index: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
+      const newChecked = [...checked];
+      newChecked[index] = event.target.checked;
+      setChecked(newChecked);
+      toggleGraphVisibility(graphStatesKeys[index], event.target.checked);
+    };
+
   return (
     <Drawer {...rest}>
-      <div className="flex flex-col">
-        {graphStatesKeys.map((graphName) => (
-          <CheckboxButton
+      <div>
+        <FormControlLabel
+          label="Select All"
+          control={
+            <Checkbox
+              checked={checked.every(Boolean)}
+              indeterminate={checked.some(Boolean) && !checked.every(Boolean)}
+              onChange={handleChangeAll}
+            />
+          }
+        />
+        {graphStatesKeys.map((graphName, index) => (
+          <Box
+            sx={{ display: 'flex', flexDirection: 'column', ml: 1 }}
             key={graphName}
-            label={mapGraphKeyToLabel[graphName]}
-            checked={graphStates[graphName]}
-            onChange={() => toggleGraphVisibility(graphName)}
-          />
+          >
+            <FormControlLabel
+              control={
+                <Checkbox
+                  className="accent-secondary-800"
+                  checked={checked[index]}
+                  onChange={handleChange(index)}
+                />
+              }
+              label={mapGraphKeyToLabel[graphName]}
+            />
+          </Box>
         ))}
       </div>
-      <Checkbox defaultChecked />
     </Drawer>
   );
 }
