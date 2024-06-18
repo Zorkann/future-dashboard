@@ -1,25 +1,38 @@
 import React from 'react';
+import Checkbox from '@mui/material/Checkbox';
+import FormControlLabel from '@mui/material/FormControlLabel';
 
-type CheckboxProps = {
+interface CheckboxButtonProps {
   label: string;
   checked: boolean;
-  onChange: (checked: boolean) => void;
-};
-
-export function CheckboxButton({ label, checked, onChange }: CheckboxProps) {
-  const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(event.target.checked);
-  };
-
-  return (
-    <label className="border rounded-lg p-2 border-secondary text-secondary ">
-      <input
-        type="checkbox"
-        checked={checked}
-        onChange={handleCheckboxChange}
-        className="accent-secondary-800"
-      />
-      <span className="ml-2">{label}</span>
-    </label>
-  );
+  onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  indeterminate?: boolean;
 }
+
+export const CheckboxButton: React.FC<CheckboxButtonProps> = ({
+  label,
+  checked,
+  onChange,
+  indeterminate = false,
+}) => {
+  return (
+    <FormControlLabel
+      control={
+        <Checkbox
+          sx={{
+            '&.Mui-checked': {
+              color: 'rgb(var(--color-secondary))',
+            },
+            '&.MuiCheckbox-indeterminate': {
+              color: 'rgb(var(--color-secondary))',
+            },
+          }}
+          checked={checked}
+          onChange={onChange}
+          indeterminate={indeterminate}
+        />
+      }
+      label={label}
+    />
+  );
+};

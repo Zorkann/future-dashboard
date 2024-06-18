@@ -1,11 +1,8 @@
 import { DrawerProps, Drawer } from '../Drawer';
-// import { CheckboxButton } from '@components/CheckboxButton';
+import { CheckboxButton } from '@components/CheckboxButton';
 import { useGraphsContext } from '@features/themes/hooks/useGraphsContext';
 import { GraphState } from '@features/themes/types';
-import Checkbox from '@mui/material/Checkbox';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import Box from '@mui/material/Box';
-import { useState } from 'react';
 
 type DashboardDrawerProps = DrawerProps;
 
@@ -23,67 +20,33 @@ const mapGraphKeyToLabel: Record<keyof GraphState, string> = {
 };
 
 export function DashboardDrawer({ ...rest }: DashboardDrawerProps) {
-  const { graphStates, toggleGraphVisibility } = useGraphsContext();
+  const { graphStates, toggleGraphVisibility, toggleAllGraphsVisibility } =
+    useGraphsContext();
   const graphStatesKeys = Object.keys(graphStates) as Array<
     keyof typeof graphStates
   >;
 
-  const [checked, setChecked] = useState(
-    graphStatesKeys.map((key) => graphStates[key]),
-  );
-
-  const handleChangeAll = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const newChecked = graphStatesKeys.map(() => event.target.checked);
-    setChecked(newChecked);
-    graphStatesKeys.forEach((key, index) => {
-      toggleGraphVisibility(key, newChecked[index]);
-    });
-  };
-
-  const handleChange =
-    (index: number) => (event: React.ChangeEvent<HTMLInputElement>) => {
-      const newChecked = [...checked];
-      newChecked[index] = event.target.checked;
-      setChecked(newChecked);
-      toggleGraphVisibility(graphStatesKeys[index], event.target.checked);
-    };
-
   return (
     <Drawer {...rest}>
       <div>
-        <FormControlLabel
-          label="Select All"
-          control={
-            <Checkbox
-              sx={{
-                '&.Mui-checked': {
-                  color: `rgb(var(--color-secondary))`,
-                },
-              }}
-              checked={checked.every(Boolean)}
-              indeterminate={checked.some(Boolean) && !checked.every(Boolean)}
-              onChange={handleChangeAll}
-            />
+        <CheckboxButton
+          label="All Graphs"
+          checked={Object.values(graphStates).every(Boolean)}
+          onChange={toggleAllGraphsVisibility}
+          indeterminate={
+            Object.values(graphStates).some(Boolean) &&
+            !Object.values(graphStates).every(Boolean)
           }
         />
-        {graphStatesKeys.map((graphName, index) => (
+        {graphStatesKeys.map((graphName) => (
           <Box
-            sx={{ display: 'flex', flexDirection: 'column', ml: 1 }}
+            sx={{ display: 'flex', flexDirection: 'column', ml: 3 }}
             key={graphName}
           >
-            <FormControlLabel
-              control={
-                <Checkbox
-                  sx={{
-                    '&.Mui-checked': {
-                      color: `rgb(var(--color-secondary))`,
-                    },
-                  }}
-                  checked={checked[index]}
-                  onChange={handleChange(index)}
-                />
-              }
+            <CheckboxButton
               label={mapGraphKeyToLabel[graphName]}
+              checked={graphStates[graphName]}
+              onChange={() => toggleGraphVisibility(graphName)}
             />
           </Box>
         ))}

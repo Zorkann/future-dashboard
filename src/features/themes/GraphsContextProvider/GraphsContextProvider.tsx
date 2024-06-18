@@ -17,10 +17,12 @@ const initialGraphStates: GraphState = {
 type GraphsContextType = {
   graphStates: GraphState;
   toggleGraphVisibility: (graphName: keyof GraphState) => void;
+  toggleAllGraphsVisibility: () => void;
 };
 export const GraphsContext = createContext<GraphsContextType | undefined>({
   graphStates: initialGraphStates,
   toggleGraphVisibility: () => null,
+  toggleAllGraphsVisibility: () => null,
 });
 
 export function GraphsContextProvider({ children }: { children: ReactNode }) {
@@ -33,8 +35,23 @@ export function GraphsContextProvider({ children }: { children: ReactNode }) {
     }));
   };
 
+  const toggleAllGraphsVisibility = () => {
+    setGraphStates((prevGraphStates) => {
+      const allVisible = Object.values(prevGraphStates).every(Boolean);
+      const newGraphStates = {} as GraphState;
+
+      Object.keys(prevGraphStates).forEach((graphName) => {
+        newGraphStates[graphName as keyof GraphState] = !allVisible;
+      });
+
+      return newGraphStates;
+    });
+  };
+
   return (
-    <GraphsContext.Provider value={{ graphStates, toggleGraphVisibility }}>
+    <GraphsContext.Provider
+      value={{ graphStates, toggleGraphVisibility, toggleAllGraphsVisibility }}
+    >
       {children}
     </GraphsContext.Provider>
   );
