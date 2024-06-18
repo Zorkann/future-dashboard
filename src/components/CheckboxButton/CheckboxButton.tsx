@@ -13,13 +13,13 @@ export function CheckboxButton({ label, checked, onChange }: CheckboxProps) {
 
   return (
     <label className="border rounded-lg p-2 border-secondary text-secondary ">
-      {label}:
       <input
         type="checkbox"
         checked={checked}
         onChange={handleCheckboxChange}
         className="accent-secondary-800"
       />
+      <span className="ml-2">{label}</span>
     </label>
   );
 }
