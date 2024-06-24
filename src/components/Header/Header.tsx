@@ -20,7 +20,7 @@ export function Header({
   }
 
   return (
-    <header className="flex items-center w-full h-16 border-b border-secondary pl-[40px] pr-[40px] shadow-lg shadow-secondary/30 fixed bg-background z-10">
+    <header className="flex items-center w-full h-16 border-b border-secondary pl-[40px] pr-[40px] shadow-lg shadow-secondary/30  bg-background z-10">
       <div>
         <img src={Logo} alt="React logo" />
       </div>
