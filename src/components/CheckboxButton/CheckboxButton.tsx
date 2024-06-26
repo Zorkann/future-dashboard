@@ -9,12 +9,12 @@ interface CheckboxButtonProps {
   indeterminate?: boolean;
 }
 
-export const CheckboxButton: React.FC<CheckboxButtonProps> = ({
+export const CheckboxButton = ({
   label,
   checked,
   onChange,
   indeterminate = false,
-}) => {
+}: CheckboxButtonProps) => {
   return (
     <FormControlLabel
       control={

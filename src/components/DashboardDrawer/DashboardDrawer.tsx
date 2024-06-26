@@ -39,10 +39,7 @@ export function DashboardDrawer({ ...rest }: DashboardDrawerProps) {
           }
         />
         {graphStatesKeys.map((graphName) => (
-          <Box
-            sx={{ display: 'flex', flexDirection: 'column', ml: 3 }}
-            key={graphName}
-          >
+          <Box className="flex flex-col ml-12" key={graphName}>
             <CheckboxButton
               label={mapGraphKeyToLabel[graphName]}
               checked={graphStates[graphName]}
