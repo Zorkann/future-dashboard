@@ -4,7 +4,9 @@ import { DashboardDrawer } from '@components/DashboardDrawer';
 import { GraphsContextProvider } from '@features/themes';
 import { Graphs } from './Graphs';
 import { Routes, Route } from 'react-router-dom';
-import { Page2 } from './Page2';
+import { LoginPage } from './LoginPage';
+import { DataPage } from './DataPage';
+import { NoMatchRoute } from '@components/NoMatchRoute';
 
 function App() {
   return (
@@ -17,7 +19,9 @@ function App() {
         />
         <Routes>
           <Route path="/" element={<Graphs />} />
-          <Route path="page2" element={<Page2 />} />
+          <Route path="login" element={<LoginPage />} />
+          <Route path="data" element={<DataPage />} />
+          <Route path="*" element={<NoMatchRoute />} />
         </Routes>
       </div>
     </GraphsContextProvider>
