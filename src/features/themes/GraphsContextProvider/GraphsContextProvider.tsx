@@ -5,6 +5,7 @@ import { GraphsStateManager } from './GraphsStateManager';
 type GraphsContextType = {
   graphStates: GraphState;
   toggleGraphVisibility: (graphName: keyof GraphState) => void;
+  toggleAllGraphsVisibility: () => void;
 };
 
 export const GraphsContext = createContext<GraphsContextType | undefined>(
@@ -15,7 +16,9 @@ export function GraphsContextProvider({ children }: { children: ReactNode }) {
   const { graphStates, toggleGraphVisibility } = GraphsStateManager();
 
   return (
-    <GraphsContext.Provider value={{ graphStates, toggleGraphVisibility }}>
+    <GraphsContext.Provider
+      value={{ graphStates, toggleGraphVisibility, toggleAllGraphsVisibility }}
+    >
       {children}
     </GraphsContext.Provider>
   );
