@@ -7,6 +7,8 @@ import { Routes, Route } from 'react-router-dom';
 import { LoginPage } from './LoginPage';
 import { DataPage } from './DataPage';
 import { NoMatchRoute } from '@components/NoMatchRoute';
+import { NewProducts } from './DataPage';
+import { FeaturedProducts } from './DataPage';
 
 function App() {
   return (
@@ -20,7 +22,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Graphs />} />
           <Route path="login" element={<LoginPage />} />
-          <Route path="data" element={<DataPage />} />
+          <Route path="data" element={<DataPage />}>
+            <Route index element={<FeaturedProducts />} />
+
+            <Route path="featured" element={<FeaturedProducts />} />
+            <Route path="new" element={<NewProducts />} />
+          </Route>
           <Route path="*" element={<NoMatchRoute />} />
         </Routes>
       </div>
