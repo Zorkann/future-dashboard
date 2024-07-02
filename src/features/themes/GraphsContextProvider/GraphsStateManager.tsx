@@ -35,5 +35,20 @@ export function GraphsStateManager() {
     });
   };
 
-  return { graphStates, toggleGraphVisibility };
+  const toggleAllGraphsVisibility = () => {
+    setGraphStates((prevGraphStates) => {
+      const allVisible = Object.values(prevGraphStates).every(Boolean);
+      const newGraphStates = {} as GraphState;
+
+      Object.keys(prevGraphStates).forEach((graphName) => {
+        newGraphStates[graphName as keyof GraphState] = !allVisible;
+      });
+
+      localStorage.setItem('graphStates', JSON.stringify(newGraphStates));
+
+      return newGraphStates;
+    });
+  };
+
+  return { graphStates, toggleGraphVisibility, toggleAllGraphsVisibility };
 }

@@ -13,7 +13,8 @@ export const GraphsContext = createContext<GraphsContextType | undefined>(
 );
 
 export function GraphsContextProvider({ children }: { children: ReactNode }) {
-  const { graphStates, toggleGraphVisibility } = GraphsStateManager();
+  const { graphStates, toggleGraphVisibility, toggleAllGraphsVisibility } =
+    GraphsStateManager();
 
   return (
     <GraphsContext.Provider
