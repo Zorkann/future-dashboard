@@ -33,10 +33,18 @@ export function Header({
         <NavLink
           to="/login"
           className={({ isActive }) =>
-            isActive ? 'text-secondary font-bold' : 'text-gray-700'
+            isActive ? 'mr-5 text-secondary font-bold' : 'mr-5 text-gray-700'
           }
         >
           Login
+        </NavLink>
+        <NavLink
+          to="/data"
+          className={({ isActive }) =>
+            isActive ? 'mr-5 text-secondary font-bold' : 'mr-5 text-gray-700'
+          }
+        >
+          Data
         </NavLink>
       </div>
       <button className="ml-auto" onClick={toggle}>
