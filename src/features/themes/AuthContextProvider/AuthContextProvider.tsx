@@ -2,7 +2,7 @@ import { useState, createContext, ReactNode } from 'react';
 
 type UserType = {
   name: string;
-  email: string;
+ 
 };
 
 export const AuthContext = createContext<{

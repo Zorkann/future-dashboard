@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import { useAuth } from '@features/themes';
 
@@ -8,13 +8,14 @@ type UserType = {
 
 export const LoginPage = () => {
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const redirectPath = location.state?.path || '/';
   const [user, setUser] = useState<UserType>({ name: '' });
   const auth = useAuth();
 
   const handleLogin = () => {
     auth.login(user);
-    navigate('/');
+    navigate(redirectPath, { replace: true });
   };
 
   return (
@@ -30,7 +31,6 @@ export const LoginPage = () => {
       </label>
 
       <button onClick={handleLogin}>Login</button>
-      <button onClick={() => navigate('/data')}>Redirect to Data</button>
     </>
   );
 };
