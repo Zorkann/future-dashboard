@@ -1,5 +1,5 @@
 import { Link, Outlet } from 'react-router-dom';
-export const DataPage = () => {
+const DataPage = () => {
   return (
     <>
       <div>Data</div>
@@ -18,3 +18,5 @@ export const DataPage = () => {
     </>
   );
 };
+
+export default DataPage;

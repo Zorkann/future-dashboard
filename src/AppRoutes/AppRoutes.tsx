@@ -1,10 +1,12 @@
+import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Graphs } from '../Graphs';
 import { LoginPage } from '../LoginPage';
 import { ProfilePage } from '../ProfilePage';
-import { DataPage, FeaturedProducts, NewProducts } from '../DataPage';
+import { FeaturedProducts, NewProducts } from '../DataPage';
 import { NoMatchRoute } from './NoMatchRoute';
 import { RequireAuth } from './RequireAuth.tsx';
+const LazyDataPage = React.lazy(() => import('../DataPage/DataPage.tsx'));
 
 export const AppRoutes = () => {
   return (
@@ -14,9 +16,11 @@ export const AppRoutes = () => {
       <Route
         path="data"
         element={
-          <RequireAuth>
-            <DataPage />
-          </RequireAuth>
+          <React.Suspense fallback="Loading...">
+            <RequireAuth>
+              <LazyDataPage />
+            </RequireAuth>
+          </React.Suspense>
         }
       >
         <Route index element={<FeaturedProducts />} />
