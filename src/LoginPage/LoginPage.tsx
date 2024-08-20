@@ -7,13 +7,30 @@ import {
   faInfoCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './LoginPage.css';
 
 // type UserType = {
 //   name: string;
 // };
 
+//poprzedni return
+{
+  /* <div>
+        <label>
+          Username: {''}
+          <input
+            type="text"
+            className="bg-white text-black"
+            value={user1}
+            onChange={(e) => setUser({ ...user, name: e.target.value })}
+          />
+        </label>
+
+        <button onClick={handleLogin}>Login</button>
+      </div> */
+}
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
-const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%]).{8,24}$/;
+const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%.]).{8,24}$/;
 
 export const LoginPage = () => {
   // const navigate = useNavigate();
@@ -30,7 +47,7 @@ export const LoginPage = () => {
   const userRef = useRef<HTMLInputElement | null>(null);
   const errRef = useRef<HTMLParagraphElement | null>(null);
 
-  const [user1, setUser1] = useState('');
+  const [user, setUser] = useState('');
   const [validName, setValidName] = useState(false);
   const [userFocus, setUserFocus] = useState(false);
 
@@ -53,11 +70,11 @@ export const LoginPage = () => {
   }, []);
 
   useEffect(() => {
-    const result = USER_REGEX.test(user1);
+    const result = USER_REGEX.test(user);
     console.log(result);
-    console.log(user1);
+    console.log(user);
     setValidName(result);
-  }, [user1]);
+  }, [user]);
 
   useEffect(() => {
     const result = PWD_REGEX.test(pwd);
@@ -69,25 +86,12 @@ export const LoginPage = () => {
   }, [pwd, matchPwd]);
 
   useEffect(() => {
-    setErrMsg('Error');
-  }, [user1, pwd, matchPwd]);
+    setErrMsg('');
+  }, [user, pwd, matchPwd]);
 
   return (
     <>
-      {/* <div>
-        <label>
-          Username: {''}
-          <input
-            type="text"
-            className="bg-white text-black"
-            value={user1}
-            onChange={(e) => setUser({ ...user, name: e.target.value })}
-          />
-        </label>
-
-        <button onClick={handleLogin}>Login</button>
-      </div> */}
-      <div>
+      <section>
         <p
           ref={errRef}
           className={errMsg ? 'errmsg' : 'offscreen'}
@@ -99,20 +103,22 @@ export const LoginPage = () => {
         <form>
           <label htmlFor="username">
             Username:
-            <span className={validName ? 'valid' : 'hide'}>
-              <FontAwesomeIcon icon={faCheck} />{' '}
-            </span>
-            <span className={validName || !user1 ? 'hide' : 'invalid'}>
-              <FontAwesomeIcon icon={faTimes} />{' '}
-            </span>
+            <FontAwesomeIcon
+              icon={faCheck}
+              className={validName ? 'valid' : 'hide'}
+            />
+            <FontAwesomeIcon
+              icon={faTimes}
+              className={validName || !user ? 'hide' : 'invalid'}
+            />
           </label>
           <input
-            className="bg-white text-black"
             type="text"
             id="username"
             ref={userRef}
             autoComplete="off"
-            onChange={(e) => setUser1(e.target.value)}
+            onChange={(e) => setUser(e.target.value)}
+            value={user}
             required
             aria-invalid={validName ? 'false' : 'true'}
             aria-describedby="uidnote"
@@ -122,31 +128,33 @@ export const LoginPage = () => {
           <p
             id="uidnote"
             className={
-              userFocus && user1 && !validName ? 'instructions' : 'offscreen'
+              userFocus && user && !validName ? 'instructions' : 'offscreen'
             }
           >
             <FontAwesomeIcon icon={faInfoCircle} />
             4 to 24 characters.
             <br />
-            Muset begin with a letter. <br />
+            Must begin with a letter.
+            <br />
             Letters, numbers, underscores, hyphens allowed.
           </p>
 
           <label htmlFor="password">
             Password:
-            <span className={validPwd ? 'valid' : 'hide'}>
-              <FontAwesomeIcon icon={faCheck} />{' '}
-            </span>
-            <span className={validPwd || !pwd ? 'hide' : 'invalid'}>
-              <FontAwesomeIcon icon={faTimes} />{' '}
-            </span>
+            <FontAwesomeIcon
+              icon={faCheck}
+              className={validPwd ? 'valid' : 'hide'}
+            />
+            <FontAwesomeIcon
+              icon={faTimes}
+              className={validPwd || !pwd ? 'hide' : 'invalid'}
+            />
           </label>
-
           <input
-            className="bg-white text-black"
             type="password"
             id="password"
             onChange={(e) => setPwd(e.target.value)}
+            value={pwd}
             required
             aria-invalid={validPwd ? 'false' : 'true'}
             aria-describedby="pwdnote"
@@ -155,24 +163,67 @@ export const LoginPage = () => {
           />
           <p
             id="pwdnote"
-            className={
-              pwdFocus && user1 && !validPwd ? 'instructions' : 'offscreen'
-            }
+            className={pwdFocus && !validPwd ? 'instructions' : 'offscreen'}
           >
             <FontAwesomeIcon icon={faInfoCircle} />
             8 to 24 characters.
             <br />
             Must include uppercase and lowercase letters, a number and a special
-            character. <br />
+            character.
+            <br />
             Allowed special characters:{' '}
-            <span aria-label="exclamation mark">!</span>
+            <span aria-label="exclamation mark">!</span>{' '}
             <span aria-label="at symbol">@</span>{' '}
-            <span aria-label="hastag">#</span>
+            <span aria-label="hashtag">#</span>{' '}
             <span aria-label="dollar sign">$</span>{' '}
             <span aria-label="percent">%</span>
           </p>
+
+          <label htmlFor="confirm_pwd">
+            Confirm Password:
+            <FontAwesomeIcon
+              icon={faCheck}
+              className={validMatch && matchPwd ? 'valid' : 'hide'}
+            />
+            <FontAwesomeIcon
+              icon={faTimes}
+              className={validMatch || !matchPwd ? 'hide' : 'invalid'}
+            />
+          </label>
+          <input
+            type="password"
+            id="confirm_pwd"
+            onChange={(e) => setMatchPwd(e.target.value)}
+            value={matchPwd}
+            required
+            aria-invalid={validMatch ? 'false' : 'true'}
+            aria-describedby="confirmnote"
+            onFocus={() => setMatchFocus(true)}
+            onBlur={() => setMatchFocus(false)}
+          />
+          <p
+            id="confirmnote"
+            className={matchFocus && !validMatch ? 'instructions' : 'offscreen'}
+          >
+            <FontAwesomeIcon icon={faInfoCircle} />
+            Must match the first password input field.
+          </p>
+
+          <button
+            disabled={!validName || !validPwd || !validMatch ? true : false}
+          >
+            Sign Up
+          </button>
         </form>
-      </div>
+        <p>
+          Already registered?
+          <br />
+          <span className="line">
+            {/*put router link here*/}
+            <a href="#">Sign In</a>
+          </span>
+        </p>
+      </section>
     </>
   );
 };
