@@ -133,7 +133,7 @@ export const LoginPage = () => {
             id="uidnote"
             className={`${
               userFocus && user && !validName
-                ? 'text-white bg-black rounded-md text-xs p-1/4 relative bottom10'
+                ? 'text-white bg-black rounded-md text-xs p-1/4 relative top-2'
                 : 'absolute left-[-9999px]'
             }`}
           >
@@ -172,7 +172,7 @@ export const LoginPage = () => {
             id="pwdnote"
             className={`${
               pwdFocus && !validPwd
-                ? 'text-white bg-black rounded-md text-xs p-1/4 relative bottom10'
+                ? 'text-white bg-black rounded-md text-xs p-1/4 relative top-2'
                 : 'absolute left-[-9999px]'
             }`}
           >
@@ -220,7 +220,7 @@ export const LoginPage = () => {
           <p
             className={`${
               matchFocus && !validMatch
-                ? 'text-white bg-black rounded-md text-xs p-1/4 relative bottom10'
+                ? 'text-white bg-black rounded-md text-xs p-1/4 relative top-2'
                 : 'absolute left-[-9999px]'
             }`}
           >
