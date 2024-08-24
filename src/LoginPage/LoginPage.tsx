@@ -7,7 +7,6 @@ import {
   faInfoCircle,
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './LoginPage.css';
 
 // type UserType = {
 //   name: string;
@@ -91,25 +90,29 @@ export const LoginPage = () => {
 
   return (
     <>
-      <section>
+      <div className="w-full max-w-[420px] min-h-[400px] flex flex-col justify-start p-4 bg-black bg-opacity-40">
         <p
           ref={errRef}
-          className={errMsg ? 'errmsg' : 'offscreen'}
+          className={`${
+            errMsg
+              ? 'bg-lightpink text-firebrick font-bold p-4 mb-0.5'
+              : 'absolute left-[-9999px]'
+          }`}
           aria-live="assertive"
         >
           {errMsg}
         </p>
         <h1>Register</h1>
-        <form>
+        <form className="flex flex-col justify-between h-full p-4">
           <label htmlFor="username">
             Username:
             <FontAwesomeIcon
               icon={faCheck}
-              className={validName ? 'valid' : 'hide'}
+              className={`${validName ? 'text-limegreen ml-1/4' : 'hidden'}`}
             />
             <FontAwesomeIcon
               icon={faTimes}
-              className={validName || !user ? 'hide' : 'invalid'}
+              className={`${validName || !user ? 'hidden' : 'text-red ml-1/4'}`}
             />
           </label>
           <input
@@ -122,14 +125,17 @@ export const LoginPage = () => {
             required
             aria-invalid={validName ? 'false' : 'true'}
             aria-describedby="uidnote"
+            className="text-lg px-1 py-2 rounded-md text-black"
             onFocus={() => setUserFocus(true)}
             onBlur={() => setUserFocus(false)}
           />
           <p
             id="uidnote"
-            className={
-              userFocus && user && !validName ? 'instructions' : 'offscreen'
-            }
+            className={`${
+              userFocus && user && !validName
+                ? 'text-white bg-black rounded-md text-xs p-1/4 relative bottom10'
+                : 'absolute left-[-9999px]'
+            }`}
           >
             <FontAwesomeIcon icon={faInfoCircle} />
             4 to 24 characters.
@@ -143,11 +149,11 @@ export const LoginPage = () => {
             Password:
             <FontAwesomeIcon
               icon={faCheck}
-              className={validPwd ? 'valid' : 'hide'}
+              className={`${validPwd ? 'text-limegreen ml-1/4' : 'hidden'}`}
             />
             <FontAwesomeIcon
               icon={faTimes}
-              className={validPwd || !pwd ? 'hide' : 'invalid'}
+              className={`${validPwd || !pwd ? 'hidden' : 'text-red ml-1/4'}`}
             />
           </label>
           <input
@@ -158,12 +164,17 @@ export const LoginPage = () => {
             required
             aria-invalid={validPwd ? 'false' : 'true'}
             aria-describedby="pwdnote"
+            className="text-lg px-1 py-2 rounded-md text-black"
             onFocus={() => setPwdFocus(true)}
             onBlur={() => setPwdFocus(false)}
           />
           <p
             id="pwdnote"
-            className={pwdFocus && !validPwd ? 'instructions' : 'offscreen'}
+            className={`${
+              pwdFocus && !validPwd
+                ? 'text-white bg-black rounded-md text-xs p-1/4 relative bottom10'
+                : 'absolute left-[-9999px]'
+            }`}
           >
             <FontAwesomeIcon icon={faInfoCircle} />
             8 to 24 characters.
@@ -183,11 +194,15 @@ export const LoginPage = () => {
             Confirm Password:
             <FontAwesomeIcon
               icon={faCheck}
-              className={validMatch && matchPwd ? 'valid' : 'hide'}
+              className={`${
+                validMatch && matchPwd ? 'text-limegreen ml-1/4' : 'hidden'
+              }`}
             />
             <FontAwesomeIcon
               icon={faTimes}
-              className={validMatch || !matchPwd ? 'hide' : 'invalid'}
+              className={`${
+                validMatch || !matchPwd ? 'hidden' : 'text-red ml-1/4'
+              }`}
             />
           </label>
           <input
@@ -198,18 +213,23 @@ export const LoginPage = () => {
             required
             aria-invalid={validMatch ? 'false' : 'true'}
             aria-describedby="confirmnote"
+            className="text-lg px-1 py-2 rounded-md text-black"
             onFocus={() => setMatchFocus(true)}
             onBlur={() => setMatchFocus(false)}
           />
           <p
-            id="confirmnote"
-            className={matchFocus && !validMatch ? 'instructions' : 'offscreen'}
+            className={`${
+              matchFocus && !validMatch
+                ? 'text-white bg-black rounded-md text-xs p-1/4 relative bottom10'
+                : 'absolute left-[-9999px]'
+            }`}
           >
             <FontAwesomeIcon icon={faInfoCircle} />
             Must match the first password input field.
           </p>
 
           <button
+            className="mt-4 px-2 py-1 bg-blue-500 text-white rounded-md text-lg  "
             disabled={!validName || !validPwd || !validMatch ? true : false}
           >
             Sign Up
@@ -218,12 +238,12 @@ export const LoginPage = () => {
         <p>
           Already registered?
           <br />
-          <span className="line">
+          <span className="inline-block">
             {/*put router link here*/}
             <a href="#">Sign In</a>
           </span>
         </p>
-      </section>
+      </div>
     </>
   );
 };
