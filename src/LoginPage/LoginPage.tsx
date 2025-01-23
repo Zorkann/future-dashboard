@@ -1,5 +1,5 @@
 // import { useNavigate, useLocation } from 'react-router-dom';
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useCallback } from 'react';
 // import { useAuth } from '@features/themes';
 import {
   faCheck,
@@ -31,6 +31,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 const USER_REGEX = /^[a-zA-Z][a-zA-Z0-9-_]{3,23}$/;
 const PWD_REGEX = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%.]).{8,24}$/;
 
+type FormFields = 'username' | 'password' | 'confirm_pwd';
+
 export const LoginPage = () => {
   // const navigate = useNavigate();
   // const location = useLocation();
@@ -42,6 +44,7 @@ export const LoginPage = () => {
   //   auth.login(user);
   //   navigate(redirectPath, { replace: true });
   // };
+  // const test = 'text-white bg-black rounded-md text-xs p-1/4 relative top-2';
 
   const userRef = useRef<HTMLInputElement | null>(null);
   const errRef = useRef<HTMLParagraphElement | null>(null);
@@ -61,8 +64,9 @@ export const LoginPage = () => {
   const [errMsg, setErrMsg] = useState('');
   const [sucess, setSucess] = useState(false);
 
+  const [focus, setFocus] = useState<FormFields | null>(null);
+
   useEffect(() => {
-    console.log('work');
     if (userRef.current !== null) {
       userRef.current.focus();
     }
@@ -103,16 +107,28 @@ export const LoginPage = () => {
           {errMsg}
         </p>
         <h1>Register</h1>
-        <form className="flex flex-col justify-between h-full p-4">
+        <form
+          className="flex flex-col justify-between h-full p-4"
+          onFocus={(event) => {
+            setFocus(
+              event.target.id as 'username' | 'password' | 'confirm_pwd' | null,
+            );
+          }}
+          onBlur={() => {
+            setFocus(null);
+          }}
+        >
           <label htmlFor="username">
             Username:
             <FontAwesomeIcon
               icon={faCheck}
-              className={`${validName ? 'text-limegreen ml-1/4' : 'hidden'}`}
+              className={`${validName ? 'text-lime-500 ml-1' : 'hidden'}`}
             />
             <FontAwesomeIcon
               icon={faTimes}
-              className={`${validName || !user ? 'hidden' : 'text-red ml-1/4'}`}
+              className={`${
+                validName || !user ? 'hidden' : 'text-red-500 ml-1'
+              }`}
             />
           </label>
           <input
@@ -126,13 +142,19 @@ export const LoginPage = () => {
             aria-invalid={validName ? 'false' : 'true'}
             aria-describedby="uidnote"
             className="text-lg px-1 py-2 rounded-md text-black"
-            onFocus={() => setUserFocus(true)}
-            onBlur={() => setUserFocus(false)}
+            onFocus={() => {
+              setUserFocus(true);
+              // setFocus('username');
+            }}
+            onBlur={() => {
+              setUserFocus(false);
+              // setFocus(null);
+            }}
           />
           <p
             id="uidnote"
             className={`${
-              userFocus && user && !validName
+              focus === 'username' && user && !validName
                 ? 'text-white bg-black rounded-md text-xs p-1/4 relative top-2'
                 : 'absolute left-[-9999px]'
             }`}
@@ -165,8 +187,14 @@ export const LoginPage = () => {
             aria-invalid={validPwd ? 'false' : 'true'}
             aria-describedby="pwdnote"
             className="text-lg px-1 py-2 rounded-md text-black"
-            onFocus={() => setPwdFocus(true)}
-            onBlur={() => setPwdFocus(false)}
+            onFocus={() => {
+              setPwdFocus(true);
+              setFocus('password');
+            }}
+            onBlur={() => {
+              setPwdFocus(false);
+              setFocus(null);
+            }}
           />
           <p
             id="pwdnote"
@@ -214,8 +242,14 @@ export const LoginPage = () => {
             aria-invalid={validMatch ? 'false' : 'true'}
             aria-describedby="confirmnote"
             className="text-lg px-1 py-2 rounded-md text-black"
-            onFocus={() => setMatchFocus(true)}
-            onBlur={() => setMatchFocus(false)}
+            onFocus={() => {
+              setMatchFocus(true);
+              setFocus('confirm_pwd');
+            }}
+            onBlur={() => {
+              setMatchFocus(false);
+              setFocus(null);
+            }}
           />
           <p
             className={`${
@@ -229,6 +263,7 @@ export const LoginPage = () => {
           </p>
 
           <button
+            type="submit"
             className="mt-4 px-2 py-1 bg-blue-500 text-white rounded-md text-lg  "
             disabled={!validName || !validPwd || !validMatch ? true : false}
           >

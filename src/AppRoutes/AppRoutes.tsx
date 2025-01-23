@@ -3,6 +3,7 @@ import { Routes, Route } from 'react-router-dom';
 import { Graphs } from '../Graphs';
 import { LoginPage } from '../LoginPage';
 import { ProfilePage } from '../ProfilePage';
+import { LoginPage2 } from '../LoginPage2';
 import { FeaturedProducts, NewProducts } from '../DataPage';
 import { NoMatchRoute } from './NoMatchRoute';
 import { RequireAuth } from './RequireAuth.tsx';
@@ -13,6 +14,7 @@ export const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<Graphs />} />
       <Route path="login" element={<LoginPage />} />
+      <Route path="login2" element={<LoginPage2 />} />
       <Route
         path="data"
         element={
