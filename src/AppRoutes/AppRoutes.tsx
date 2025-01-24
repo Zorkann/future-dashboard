@@ -19,9 +19,9 @@ export const AppRoutes = () => {
         path="data"
         element={
           <React.Suspense fallback="Loading...">
-            <RequireAuth>
-              <LazyDataPage />
-            </RequireAuth>
+            {/* <RequireAuth> */}
+            <LazyDataPage />
+            {/* </RequireAuth> */}
           </React.Suspense>
         }
       >

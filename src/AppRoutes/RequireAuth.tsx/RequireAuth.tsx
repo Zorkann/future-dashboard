@@ -10,7 +10,7 @@ export const RequireAuth = ({ children }: RequireAuthProps) => {
   const auth = useAuth();
   const location = useLocation();
   if (!auth.user) {
-    return <Navigate to="/login" state={{ path: location.pathname }} />;
+    return <Navigate to="/login2" state={{ path: location.pathname }} />;
   }
   return children;
 };

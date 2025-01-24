@@ -1,17 +1,30 @@
 import { useForm } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
+import axios from 'axios';
 
 type FormValues = {
-  username: string;
   email: string;
+  password: string;
 };
 
 export const LoginPage2 = () => {
   const form = useForm<FormValues>();
-  const { register, control, handleSubmit } = form;
+  const { register, control, handleSubmit, formState } = form;
+  const { errors } = formState;
 
-  const onSubmit = (data: FormValues) => {
+  const onSubmit = async (data: FormValues) => {
     console.log('Form submmited', data);
+
+    try {
+      const response = await axios.post('http://localhost:3000/users', data);
+      if (response.status === 201 || response.status === 200) {
+        console.log('Data successfully sent to JSON Server');
+      } else {
+        console.error('Failed to send data to JSON Server');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+    }
   };
 
   return (
@@ -23,20 +36,6 @@ export const LoginPage2 = () => {
           onSubmit={handleSubmit(onSubmit)}
           noValidate
         >
-          <div className="mb-4">
-            <label
-              className="block text-gray-700 text-sm font-bold mb-2"
-              htmlFor="username"
-            >
-              Username
-            </label>
-            <input
-              className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-gray-800"
-              type="text"
-              id="username"
-              {...register('username', { required: 'Username is required' })}
-            />
-          </div>
           <div className="mb-6">
             <label
               className="block text-gray-700 text-sm font-bold mb-2"
@@ -48,8 +47,50 @@ export const LoginPage2 = () => {
               className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-gray-800"
               type="email"
               id="email"
-              {...register('email', { required: 'Email is required' })}
+              {...register('email', {
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                  message: 'invalid email format',
+                },
+              })}
             />
+            <p className="text-red-500">{errors.email?.message}</p>
+          </div>
+          <div className="mb-6">
+            <label
+              className="block text-gray-700 text-sm font-bold mb-2"
+              htmlFor="password"
+            >
+              Password
+            </label>
+            <input
+              className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-gray-800"
+              type="password"
+              id="password"
+              {...register('password', {
+                required: {
+                  value: true,
+                  message: 'Password is required',
+                },
+                minLength: {
+                  value: 8,
+                  message: 'Password must be at least 8 characters',
+                },
+                maxLength: {
+                  value: 24,
+                  message: 'Password must be no more than 24 characters',
+                },
+                pattern: {
+                  value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%]).{8,24}$/,
+                  message:
+                    'Password must include upper and lower case letters, and one special character (@, !, #, $, %)',
+                },
+              })}
+            />
+
+            <p className="text-red-500 text-xs italic">
+              {errors.password?.message}
+            </p>
           </div>
           <div className="flex items-center justify-between">
             <button
