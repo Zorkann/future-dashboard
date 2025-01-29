@@ -4,6 +4,7 @@ import { Graphs } from '../Graphs';
 import { LoginPage } from '../LoginPage';
 import { ProfilePage } from '../ProfilePage';
 import { LoginPage2 } from '../LoginPage2';
+import { Reg } from '../Reg';
 import { FeaturedProducts, NewProducts } from '../DataPage';
 import { NoMatchRoute } from './NoMatchRoute';
 import { RequireAuth } from './RequireAuth.tsx';
@@ -15,6 +16,7 @@ export const AppRoutes = () => {
       <Route path="/" element={<Graphs />} />
       <Route path="login" element={<LoginPage />} />
       <Route path="login2" element={<LoginPage2 />} />
+      <Route path="reg" element={<Reg />} />
       <Route
         path="data"
         element={

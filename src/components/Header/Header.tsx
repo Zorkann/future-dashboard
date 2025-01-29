@@ -71,6 +71,17 @@ export function Header({
             Login2
           </NavLink>
         )}
+
+        {!auth.user && (
+          <NavLink
+            to="/reg"
+            className={({ isActive }) =>
+              isActive ? 'mr-5 text-secondary font-bold' : 'mr-5 text-gray-700'
+            }
+          >
+            Reg
+          </NavLink>
+        )}
       </div>
       <button className="ml-auto" onClick={toggle}>
         Toggler

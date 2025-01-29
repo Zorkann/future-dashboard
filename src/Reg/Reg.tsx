@@ -1,36 +1,26 @@
 import { useForm } from 'react-hook-form';
 import { DevTool } from '@hookform/devtools';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
 
 type FormValues = {
   email: string;
   password: string;
 };
 
-export const LoginPage2 = () => {
+export const Reg = () => {
   const form = useForm<FormValues>();
   const { register, control, handleSubmit, formState } = form;
   const { errors } = formState;
-  const navigate = useNavigate();
 
   const onSubmit = async (data: FormValues) => {
-    console.log('Form submitted', data);
+    console.log('Form submmited', data);
 
     try {
-      const response = await axios.get('http://localhost:3000/users');
-      const users = response.data;
-
-      const userExists = users.some(
-        (user: { email: string; password: string }) =>
-          user.email === data.email && user.password === data.password,
-      );
-
-      if (userExists) {
-        console.log('User found, redirecting...');
-        navigate('/profile'); // Przekierowanie po znalezieniu użytkownika
+      const response = await axios.post('http://localhost:3000/users', data);
+      if (response.status === 201 || response.status === 200) {
+        console.log('Data successfully sent to JSON Server');
       } else {
-        console.error('User not found');
+        console.error('Failed to send data to JSON Server');
       }
     } catch (error) {
       console.error('Error:', error);
@@ -97,6 +87,7 @@ export const LoginPage2 = () => {
                 },
               })}
             />
+
             <p className="text-red-500 text-xs italic">
               {errors.password?.message}
             </p>
@@ -106,7 +97,7 @@ export const LoginPage2 = () => {
               className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
               type="submit"
             >
-              Login
+              Submit
             </button>
           </div>
         </form>
